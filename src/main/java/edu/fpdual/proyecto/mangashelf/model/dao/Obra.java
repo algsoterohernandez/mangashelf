@@ -26,10 +26,10 @@ public class Obra {
 
     public Obra(ResultSet result) throws SQLException {
         setTitulo(result.getString("Titulo"));
-        setAnyoPublicacion(result.getInt("Anyo Publicacion"));
-        setAnyoTermino(result.getString("Anyo Termino"));
-        setCapitulosLeidos(result.getInt("Capitulos Leidos"));
-        setCapitulosTotales(result.getString("Capitulos Totales"));
+        setAnyoPublicacion(result.getInt("AnyoPublicacion"));
+        setAnyoTermino(result.getString("AnyoTermino"));
+        setCapitulosLeidos(result.getInt("CapitulosLeidos"));
+        setCapitulosTotales(result.getString("CapitulosTotales"));
         setEstado(result.getInt("Estado"));
     }
 
