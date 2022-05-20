@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * Class responsible for creation of MySQL DB connection.
+ * Clase responsable de la creación de la conexion con la BBDD de MySQL.
  * @author ikisaki
  *
  */
