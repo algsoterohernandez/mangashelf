@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Mangashelf">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="600.0" />
+            </content>
+          </Tab>
+          <Tab text="En Curso">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="Pendientes">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                </content>
+            </Tab>
+          <Tab text="Finalizados">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ButtonBar layoutX="-4.0" prefHeight="31.0" prefWidth="600.0">
+        <buttons>
+          <Button minWidth="64.0" mnemonicParsing="false" prefHeight="10.0" text="Button" />
+            <Button layoutX="422.0" layoutY="13.0" minWidth="66.0" mnemonicParsing="false" prefHeight="13.0" text="Cerrar Sesión" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
