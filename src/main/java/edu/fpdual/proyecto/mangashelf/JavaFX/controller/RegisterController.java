@@ -1,9 +1,9 @@
-package JavaFX.controller;
+package edu.fpdual.proyecto.mangashelf.JavaFX.controller;
 
 
 import java.io.IOException;
 
-import JavaFX.service.App;
+import edu.fpdual.proyecto.mangashelf.JavaFX.service.App;
 import javafx.fxml.FXML;
 
 public class RegisterController {

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.LoginController">
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.JavaFX.controller.LoginController">
 
     <padding>
         <Insets bottom="40.0" left="100.0" right="100.0" top="40.0" />

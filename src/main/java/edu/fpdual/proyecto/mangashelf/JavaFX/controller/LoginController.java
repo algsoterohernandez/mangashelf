@@ -1,4 +1,4 @@
-package JavaFX.controller;
+package edu.fpdual.proyecto.mangashelf.JavaFX.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
