@@ -77,7 +77,7 @@
         <rowConstraints>
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
         </rowConstraints>
-        <Button fx:id="loginButton" contentDisplay="CENTER" onAction="#logData" prefHeight="25.0" prefWidth="80.0" text="Registrar" />
+        <Button fx:id="loginButton" contentDisplay="CENTER" onAction="#logData" prefHeight="25.0" prefWidth="80.0" text="Enviar" />
         <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetAction" prefHeight="25.0" prefWidth="80.0" text="Borrar" GridPane.columnIndex="1">
             <GridPane.margin>
                 <Insets left="32.0" />
