@@ -1,4 +1,4 @@
-package JavaFX.controller.events;
+package edu.fpdual.proyecto.mangashelf.JavaFX.controller.events;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
