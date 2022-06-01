@@ -4,6 +4,6 @@ module mangashelf {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens edu.fpdual.proyecto.mangashelf.JavaFX to javafx.fxml;
+    opens edu.fpdual.proyecto.mangashelf.javafx to javafx.fxml;
 
 }

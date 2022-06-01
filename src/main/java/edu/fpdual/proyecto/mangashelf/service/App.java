@@ -1,4 +1,4 @@
-package edu.fpdual.proyecto.mangashelf.JavaFX.service;
+package edu.fpdual.proyecto.mangashelf.service;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
