@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="412.0" prefWidth="600.0" stylesheets="@cssstyle/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.javaFX.controller.FavoritosController">
+   <children>
+      <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../static.img/logos/logo_mangashelf_transparente.png" />
+               </image>
+            </ImageView>
+            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" text="MANGASHELF" textFill="WHITE">
+               <font>
+                  <Font name="Goudy Stout" size="13.0" />
+               </font>
+            </Label>
+            <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="26.0" layoutX="570.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../static.img/iconos/cancel-button.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Separator layoutY="32.0" prefHeight="2.0" prefWidth="600.0" />
+      <Separator layoutY="36.0" prefHeight="3.0" prefWidth="600.0" />
+      <AnchorPane layoutY="38.0" prefHeight="374.0" prefWidth="183.0" style="-fx-background-color: white;">
+         <children>
+            <Label accessibleRole="BUTTON" layoutX="70.0" layoutY="73.0" text="Leídos">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="14.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../static.img/iconos/libros.png" />
+               </image>
+            </ImageView>
+            <Label accessibleRole="BUTTON" layoutX="70.0" layoutY="158.0" text="En Curso">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../static.img/iconos/leyendo%20(1).png" />
+               </image>
+            </ImageView>
+            <Label accessibleRole="BUTTON" layoutX="70.0" layoutY="232.0" text="Favoritos">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="15.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../static.img/iconos/amor.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="217.0" layoutY="66.0" prefHeight="167.0" prefWidth="348.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
