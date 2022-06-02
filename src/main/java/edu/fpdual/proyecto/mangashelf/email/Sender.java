@@ -3,24 +3,15 @@ package edu.fpdual.proyecto.mangashelf.email;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 
@@ -63,53 +54,6 @@ public class Sender {
             mex.printStackTrace();
             return false;
         }
-    }
-    public boolean send(String from, String to, String subject, String text, String content) throws FileNotFoundException, IOException {
-        Session session = createSession();
-        try {
-            MimeMessage message = new MimeMessage(session);
-
-            message.setFrom(new InternetAddress(from));
-
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
-            message.setSubject(subject);
-
-            BodyPart texto = new MimeBodyPart();
-            texto.setContent(text,"text/html");
-
-            File file = new File(content);
-
-            InputStream fileData = getClass().getClassLoader().getResourceAsStream("mail.properties");
-
-            try (FileOutputStream outputStream = new FileOutputStream(file, false)) {
-                int read;
-                byte[] bytes = new byte[8192];
-                while ((read = fileData.read(bytes)) != -1) {
-                    outputStream.write(bytes, 0, read);
-                }
-            }
-
-            BodyPart fichero = new MimeBodyPart();
-            fichero.setDataHandler(new DataHandler(new FileDataSource(file)));
-            fichero.setFileName(file.getName());
-
-            Multipart multiPart = new MimeMultipart();
-            multiPart.addBodyPart(texto);
-            multiPart.addBodyPart(fichero);
-
-            message.setContent(multiPart);
-
-            System.out.println("sending...");
-
-            Transport.send(message);
-            System.out.println("Sent message successfully....");
-            return true;
-        } catch (MessagingException mex) {
-            mex.printStackTrace();
-            return false;
-        }
-
     }
     private Session createSession() {
         Session session = Session.getInstance(mailProp, new javax.mail.Authenticator() {
