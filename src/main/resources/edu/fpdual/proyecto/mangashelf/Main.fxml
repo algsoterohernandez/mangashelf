@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/logos/logo_mangashelf_transparente.png" />
+                  <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
                </image>
             </ImageView>
             <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" text="MANGASHELF" textFill="WHITE">
@@ -30,18 +30,18 @@
             </Label>
             <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="26.0" layoutX="570.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/iconos/cancel-button.png" />
+                  <Image url="@static.img/iconos/cancel-button.png" />
                </image>
             </ImageView>
             <TextField layoutX="249.0" layoutY="4.0" prefHeight="25.0" prefWidth="125.0" promptText="Buscar ..." />
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="218.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/iconos/lupa.png" />
+                  <Image url="@static.img/iconos/lupa.png" />
                </image>
             </ImageView>
             <ImageView accessibleRole="TEXT" fitHeight="28.0" fitWidth="25.0" layoutX="380.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/iconos/filtro.png" />
+                  <Image url="@static.img/iconos/filtro.png" />
                </image>
             </ImageView>
             <MenuButton layoutX="407.0" layoutY="4.0" mnemonicParsing="false" text="Filtro">
@@ -65,7 +65,7 @@
          <children>
             <ImageView fitHeight="68.0" fitWidth="65.0" layoutX="61.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/iconos/user.png" />
+                  <Image url="@static.img/iconos/user.png" />
                </image>
             </ImageView>
             <Label layoutX="29.0" layoutY="88.0" text="NOMBRE">
@@ -82,7 +82,7 @@
                   </Label>
                   <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="21.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/iconos/libros.png" />
+                        <Image url="@static.img/iconos/libros.png" />
                      </image>
                   </ImageView>
                </children>
@@ -96,7 +96,7 @@
                   </Label>
                   <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/iconos/leyendo.png" />
+                        <Image url="@static.img/iconos/leyendo.png" />
                      </image>
                   </ImageView>
                </children>
@@ -110,7 +110,7 @@
                   </Label>
                   <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/iconos/amor.png" />
+                        <Image url="@static.img/iconos/amor.png" />
                      </image>
                   </ImageView>
                </children>
@@ -123,7 +123,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/AssassinationClassroom.png" />
+                        <Image url="@static.img/portadas/AssassinationClassroom.png" />
                      </image>
                      <TilePane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -131,32 +131,32 @@
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/AttackonTitan.png" />
+                        <Image url="@static.img/portadas/AttackonTitan.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/BaohTheVisitor.png" />
+                        <Image url="@static.img/portadas/BaohTheVisitor.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="257.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/Berserk.png" />
+                        <Image url="@static.img/portadas/Berserk.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/ChainsawMan.png" />
+                        <Image url="@static.img/portadas/ChainsawMan.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="157.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/DemonSlayer.png" />
+                        <Image url="@static.img/portadas/DemonSlayer.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="273.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../static.img/portadas/FairyTail.png" />
+                        <Image url="@static.img/portadas/FairyTail.png" />
                      </image>
                   </ImageView>
                </children>
