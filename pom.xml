@@ -86,7 +86,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.1</version>
                 <configuration>
-                    <mainClass>edu.fpdual.App</mainClass>
+                    <mainClass>edu.fpdual.proyecto.mangashelf.controller.Mangashelf</mainClass>
                 </configuration>
             </plugin>
             <plugin>

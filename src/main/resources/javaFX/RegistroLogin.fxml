@@ -75,7 +75,7 @@
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="BorrarRegistroBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
+                        <Button fx:id="borrarRegistroBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
                            <font>
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
@@ -98,24 +98,24 @@
                               <Font name="Eras Medium ITC" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="emailSesion" layoutX="169.0" layoutY="96.0" prefHeight="25.0" prefWidth="250.0" />
+                        <TextField fx:id="emailInicio" layoutX="169.0" layoutY="96.0" prefHeight="25.0" prefWidth="250.0" />
                         <Label layoutX="169.0" layoutY="138.0" text="Contraseña">
                            <font>
                               <Font name="Eras Medium ITC" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="contrasenyaSesion" layoutX="169.0" layoutY="162.0" prefHeight="25.0" prefWidth="250.0" />
+                        <TextField fx:id="contrasenyaInicio" layoutX="169.0" layoutY="162.0" prefHeight="25.0" prefWidth="250.0" />
                         <Hyperlink fx:id="linkOlvidoContrasenya" layoutX="221.0" layoutY="201.0" text="¿Olvidaste tu contraseña?">
                            <font>
                               <Font name="Eras Medium ITC" size="12.0" />
                            </font>
                         </Hyperlink>
-                        <Button fx:id="EntrarBoton" layoutX="169.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Entrar" textFill="#090909">
+                        <Button fx:id="entrarBoton" layoutX="169.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Entrar" textFill="#090909">
                            <font>
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="BorrarIniciarBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
+                        <Button fx:id="borrarIniciarBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
                            <font>
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>

@@ -5,6 +5,4 @@ module mangashelf {
     requires java.mail;
     requires activation;
 
-    opens edu.fpdual.proyecto.mangashelf.javafx to javafx.fxml;
-
 }
