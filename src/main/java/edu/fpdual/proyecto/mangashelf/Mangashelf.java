@@ -1,4 +1,4 @@
-package edu.fpdual.proyecto.mangashelf.controller;
+package edu.fpdual.proyecto.mangashelf;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class Mangashelf extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Main"));
+        scene = new Scene(loadFXML("RegistroLogin"));
         stage.setScene(scene);
         stage.show();
     }

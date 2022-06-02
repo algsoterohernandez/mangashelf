@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -20,7 +21,7 @@
          <children>
             <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/logos/logo_mangashelf_transparente.png" />
+                  <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
                </image>
             </ImageView>
             <Label layoutX="41.0" layoutY="3.0" prefHeight="29.0" prefWidth="170.0" text="MANGASHELF" textFill="WHITE">
@@ -30,16 +31,16 @@
             </Label>
             <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="26.0" layoutX="570.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../static.img/iconos/cancel-button.png" />
+                  <Image url="@static.img/iconos/cancel-button.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
       <Separator layoutY="32.0" prefHeight="2.0" prefWidth="600.0" />
       <Separator layoutY="36.0" prefHeight="3.0" prefWidth="600.0" />
-      <TabPane layoutY="39.0" prefHeight="361.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="pestanyas" layoutY="39.0" prefHeight="361.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="RegistroView" text="                              CREAR CUENTA                              ">
+          <Tab fx:id="registroView" text="                              CREAR CUENTA                              ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -59,8 +60,7 @@
                               <Font name="Eras Medium ITC" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="contrasenyaRegistro" layoutX="169.0" layoutY="162.0" prefHeight="25.0" prefWidth="250.0" />
-                        <Hyperlink fx:id="linkInicioSesion" layoutX="193.0" layoutY="196.0" text="¿Ya tienes cuenta? Inicia sesión aquí.">
+                        <Hyperlink fx:id="linkInicioSesion" layoutX="193.0" layoutY="196.0" onAction="#cambiarInicioSesion" text="¿Ya tienes cuenta? Inicia sesión aquí.">
                            <font>
                               <Font name="Eras Medium ITC" size="12.0" />
                            </font>
@@ -75,11 +75,12 @@
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="borrarRegistroBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
+                        <Button fx:id="borrarRegistroBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" onAction="#borrarRegistrar" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
                            <font>
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
+                        <PasswordField fx:id="contrasenyaRegistro" layoutX="169.0" layoutY="166.0" prefHeight="25.0" prefWidth="250.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -104,7 +105,6 @@
                               <Font name="Eras Medium ITC" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="contrasenyaInicio" layoutX="169.0" layoutY="162.0" prefHeight="25.0" prefWidth="250.0" />
                         <Hyperlink fx:id="linkOlvidoContrasenya" layoutX="221.0" layoutY="201.0" text="¿Olvidaste tu contraseña?">
                            <font>
                               <Font name="Eras Medium ITC" size="12.0" />
@@ -115,11 +115,12 @@
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="borrarIniciarBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
+                        <Button fx:id="borrarIniciarBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" onAction="#borrarIniciar" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
                            <font>
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
+                        <PasswordField fx:id="contrasenyaInicio" layoutX="169.0" layoutY="166.0" prefHeight="25.0" prefWidth="250.0" />
                      </children>
                   </AnchorPane>
             </content>
