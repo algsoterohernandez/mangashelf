@@ -1,6 +1,5 @@
 module mangashelf {
-    requires lombok;
-    requires java.sql;
+    requires static lombok;
     requires javafx.controls;
     requires javafx.fxml;
     requires java.mail;
