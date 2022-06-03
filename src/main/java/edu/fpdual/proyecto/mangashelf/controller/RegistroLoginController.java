@@ -1,5 +1,7 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
+import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
+import jakarta.ws.rs.core.Response;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
@@ -71,6 +73,10 @@ public class RegistroLoginController {
 
         emailUsuario = emailRegistro.getText();
         contrasenyaUsuario = contrasenyaRegistro.getText();
+
+        new UsuariosClient().createUser(emailUsuario, contrasenyaUsuario);
+
+        System.out.println("Hola");
 
     }
 
