@@ -1,10 +1,14 @@
 package edu.fpdual.proyecto.mangashelf.client;
 
+import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.io.IOException;
 
 public class UsuariosClient {
 
@@ -16,8 +20,9 @@ public class UsuariosClient {
     }
 
     public void createUser(String email, String password) {
-
-        webTarget.path("usuarios/create/"+email+"/"+password).request(MediaType.APPLICATION_JSON).accept(MediaType.TEXT_PLAIN_TYPE).post(null);
+        Response response = webTarget.path("usuarios/create/" + email + "/" + password)
+                .request()
+                .post(null);
     }
 
 }
