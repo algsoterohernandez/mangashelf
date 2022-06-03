@@ -4,6 +4,9 @@ module mangashelf {
     requires javafx.fxml;
     requires java.sql;
     requires jakarta.ws.rs;
+    requires jakarta.xml.bind;
+    requires jakarta.inject;
+    requires jakarta.annotation;
 
     opens edu.fpdual.proyecto.mangashelf.controller to javafx.fxml;
 
