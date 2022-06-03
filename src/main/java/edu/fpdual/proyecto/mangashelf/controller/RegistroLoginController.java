@@ -1,10 +1,16 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
+import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import jakarta.ws.rs.client.WebTarget;
 
 import java.io.IOException;
+import java.util.LinkedHashSet;
 
 public class RegistroLoginController {
 
@@ -58,6 +64,9 @@ public class RegistroLoginController {
         emailUsuario = emailRegistro.getText();
         contrasenyaUsuario = contrasenyaRegistro.getText();
 
+        LinkedHashSet<Autor> autores = new UsuariosClient().findAll();
+
+        System.out.println(autores);
     }
 
     @FXML
@@ -67,7 +76,5 @@ public class RegistroLoginController {
         contrasenyaUsuario = contrasenyaInicio.getText();
 
     }
-
-
 
 }

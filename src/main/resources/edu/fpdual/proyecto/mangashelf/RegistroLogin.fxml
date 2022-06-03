@@ -70,7 +70,7 @@
                               <Font name="Eras Medium ITC" size="12.0" />
                            </font>
                         </CheckBox>
-                        <Button fx:id="registrarBoton" layoutX="169.0" layoutY="278.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Registrar" textFill="#090909">
+                        <Button fx:id="registrarBoton" layoutX="169.0" layoutY="278.0" mnemonicParsing="false" onAction="#registrarUsuario" prefHeight="30.0" prefWidth="90.0" text="Registrar" textFill="#090909">
                            <font>
                               <Font name="Eras Demi ITC" size="16.0" />
                            </font>
