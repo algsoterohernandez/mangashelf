@@ -1,12 +1,10 @@
 package edu.fpdual.proyecto.mangashelf.client;
 
-import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
-
-import java.util.LinkedHashSet;
+import jakarta.ws.rs.core.Response;
 
 public class UsuariosClient {
 
@@ -17,10 +15,9 @@ public class UsuariosClient {
         this.webTarget = client.target("http://localhost:8080/MangaShelfWebService/api/");
     }
 
-    public LinkedHashSet<Autor> findAll() {
+    public void createUser(String email, String password) {
 
-        LinkedHashSet<Autor> autores = webTarget.path("autor/get").request(MediaType.APPLICATION_JSON).get(LinkedHashSet.class);
-        return autores;
+        webTarget.path("usuarios/create/"+email+"/"+password).request(MediaType.APPLICATION_JSON).accept(MediaType.TEXT_PLAIN_TYPE).post(null);
     }
 
 }
