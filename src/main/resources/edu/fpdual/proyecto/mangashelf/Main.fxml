@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.MainController">
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.MainController">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
          <children>
@@ -61,7 +69,7 @@
                   <Image url="@static.img/iconos/user.png" />
                </image>
             </ImageView>
-            <Label layoutX="29.0" layoutY="88.0" text="NOMBRE">
+            <Label fx:id="nombreUsuario" layoutX="29.0" layoutY="88.0" text="NOMBRE">
                <font>
                   <Font name="Goudy Stout" size="16.0" />
                </font>
