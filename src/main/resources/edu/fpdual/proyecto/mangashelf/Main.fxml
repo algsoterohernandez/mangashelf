@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.TilePane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.MainController">
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.MainController">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
          <children>
@@ -28,11 +20,6 @@
                   <Font name="Goudy Stout" size="13.0" />
                </font>
             </Label>
-            <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="26.0" layoutX="570.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@static.img/iconos/cancel-button.png" />
-               </image>
-            </ImageView>
             <TextField layoutX="249.0" layoutY="4.0" prefHeight="25.0" prefWidth="125.0" promptText="Buscar ..." />
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="218.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -50,12 +37,18 @@
                 <MenuItem mnemonicParsing="false" text="Autor" />
                   <MenuItem mnemonicParsing="false" text="Género" />
               </items>
+               <font>
+                  <Font name="Eras Demi ITC" size="12.0" />
+               </font>
             </MenuButton>
             <MenuButton layoutX="477.0" layoutY="4.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Orden">
                <items>
                   <MenuItem mnemonicParsing="false" text="Ascendente" />
                   <MenuItem mnemonicParsing="false" text="Descendente" />
                </items>
+               <font>
+                  <Font name="Eras Demi ITC" size="12.0" />
+               </font>
             </MenuButton>
          </children>
       </Pane>
