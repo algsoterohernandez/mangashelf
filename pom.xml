@@ -29,6 +29,7 @@
             <version>18</version>
         </dependency>
 
+
         <!-- Dep. lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -44,11 +45,6 @@
             <version>3.0.4</version>
         </dependency>
         <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>3.0.4</version>
@@ -58,6 +54,13 @@
             <artifactId>jersey-hk2</artifactId>
             <version>3.0.4</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+
     </dependencies>
     <build>
         <plugins>

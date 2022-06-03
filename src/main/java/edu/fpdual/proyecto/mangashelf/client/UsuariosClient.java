@@ -19,8 +19,7 @@ public class UsuariosClient {
 
     public LinkedHashSet<Autor> findAll() {
 
-        LinkedHashSet<Autor> autores = webTarget.path("autor/get/desc").request(MediaType.APPLICATION_JSON).get(LinkedHashSet.class);
-
+        LinkedHashSet<Autor> autores = webTarget.path("autor/get").request(MediaType.APPLICATION_JSON).get(LinkedHashSet.class);
         return autores;
     }
 
