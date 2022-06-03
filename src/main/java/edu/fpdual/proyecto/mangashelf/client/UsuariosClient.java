@@ -1,7 +1,6 @@
 package edu.fpdual.proyecto.mangashelf.client;
 
 import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
-import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;

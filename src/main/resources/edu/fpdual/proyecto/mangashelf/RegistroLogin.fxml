@@ -65,7 +65,7 @@
                               <Font name="Eras Medium ITC" size="12.0" />
                            </font>
                         </Hyperlink>
-                        <CheckBox fx:id="suscripcion" layoutX="108.0" layoutY="233.0" mnemonicParsing="false" text="Quiero suscribirme de forma gratuita a la newsletter MANGASHELF">
+                        <CheckBox fx:id="suscripcion" layoutX="110.0" layoutY="252.0" mnemonicParsing="false" text="Quiero suscribirme de forma gratuita a la newsletter MANGASHELF">
                            <font>
                               <Font name="Eras Medium ITC" size="12.0" />
                            </font>
@@ -81,6 +81,7 @@
                            </font>
                         </Button>
                         <PasswordField fx:id="contrasenyaRegistro" layoutX="169.0" layoutY="166.0" prefHeight="25.0" prefWidth="250.0" />
+                        <Label fx:id="comentarioRegistro" alignment="CENTER" layoutX="169.0" layoutY="226.0" prefHeight="17.0" prefWidth="250.0" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
             </content>
@@ -105,7 +106,7 @@
                               <Font name="Eras Medium ITC" size="16.0" />
                            </font>
                         </Label>
-                        <Hyperlink fx:id="linkOlvidoContrasenya" layoutX="221.0" layoutY="201.0" text="¿Olvidaste tu contraseña?">
+                        <Hyperlink fx:id="linkOlvidoContrasenya" layoutX="221.0" layoutY="201.0" onAction="#generarContrasenya" text="¿Olvidaste tu contraseña?">
                            <font>
                               <Font name="Eras Medium ITC" size="12.0" />
                            </font>
@@ -121,6 +122,7 @@
                            </font>
                         </Button>
                         <PasswordField fx:id="contrasenyaInicio" layoutX="169.0" layoutY="166.0" prefHeight="25.0" prefWidth="250.0" />
+                        <Label fx:id="comentarioInicio" alignment="CENTER" layoutX="83.0" layoutY="238.0" prefHeight="17.0" prefWidth="434.0" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
             </content>
