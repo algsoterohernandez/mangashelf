@@ -1,8 +1,8 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
-import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
-import jakarta.ws.rs.core.Response;
+import edu.fpdual.proyecto.mangashelf.Mangashelf;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -37,6 +37,9 @@ public class RegistroLoginController {
     @FXML
     private Label comentarioInicio;
 
+    @FXML
+    private CheckBox suscripcion;
+
     //Borra los datos introducidos en la ventana de registro
     @FXML
     private void borrarRegistrar() throws IOException {
@@ -63,6 +66,7 @@ public class RegistroLoginController {
 
         emailRegistro.clear();
         contrasenyaRegistro.clear();
+        comentarioRegistro.setText("");
 
     }
 
@@ -74,9 +78,35 @@ public class RegistroLoginController {
         emailUsuario = emailRegistro.getText();
         contrasenyaUsuario = contrasenyaRegistro.getText();
 
-        new UsuariosClient().createUser(emailUsuario, contrasenyaUsuario);
+        if (emailUsuario.equals("")) {
 
-        System.out.println("Hola");
+            comentarioRegistro.setTextFill(Color.RED);
+            comentarioRegistro.setText("Introduzca un email");
+
+        } else if (contrasenyaUsuario.equals("")) {
+
+            comentarioRegistro.setTextFill(Color.RED);
+            comentarioRegistro.setText("Introduzca la contraseña");
+
+        } else {
+
+            //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
+
+            // Ejemplo : new UsuariosClient().createUser(emailUsuario, contrasenyaUsuario);
+
+            comentarioRegistro.setText("");
+
+            Mangashelf.setRoot("Main");
+
+            if (suscripcion.isSelected()) {
+
+                //Aquí debe enviarse una newsletter al email del usuario
+
+                System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
+
+            }
+
+        }
 
     }
 
@@ -87,6 +117,28 @@ public class RegistroLoginController {
 
         emailUsuario = emailInicio.getText();
         contrasenyaUsuario = contrasenyaInicio.getText();
+
+        if (emailUsuario.equals("")) {
+
+            comentarioInicio.setTextFill(Color.RED);
+            comentarioInicio.setText("Introduzca un email");
+
+        } else if (contrasenyaUsuario.equals("")) {
+
+            comentarioInicio.setTextFill(Color.RED);
+            comentarioInicio.setText("Introduzca la contraseña");
+
+        } else {
+
+            //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
+
+            // Ejemplo : new UsuariosClient().createUser(emailUsuario, contrasenyaUsuario);
+
+            comentarioInicio.setText("");
+
+            Mangashelf.setRoot("Main");
+
+        }
 
     }
 
@@ -105,6 +157,8 @@ public class RegistroLoginController {
         } else {
 
             String nuevaContrasenya = cadenaAleatoria(8);
+
+            //Aquí se debe mandar un correo al email del usuario con la nueva contraseña
 
             comentarioInicio.setTextFill(Color.BLACK);
             comentarioInicio.setText("Se ha enviado una nueva contraseña al email "+emailUsuario+" "+nuevaContrasenya);
