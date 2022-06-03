@@ -62,7 +62,7 @@
                         </Button>
                         <Button fx:id="borrarRegistroBoton" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" onAction="#borrarRegistrar" prefHeight="30.0" prefWidth="90.0" text="Borrar" textFill="#090909">
                            <font>
-                              <Font name="Eras Medium ITC" size="16.0" />
+                              <Font name="Eras Demi ITC" size="16.0" />
                            </font>
                         </Button>
                         <PasswordField fx:id="contrasenyaRegistro" layoutX="169.0" layoutY="166.0" prefHeight="25.0" prefWidth="250.0" />
