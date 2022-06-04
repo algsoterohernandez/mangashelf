@@ -32,6 +32,13 @@ public class MainController {
     @FXML
     private Pane pendienteBoton;
 
+    @FXML
+    private void irInfo() throws IOException {
+
+        Mangashelf.setRoot("Info");
+
+    }
+
     //Cuando se haga click en Mangashelf, o en su logo, se reiniciará la página
     @FXML
     private void volverIndice() throws IOException {

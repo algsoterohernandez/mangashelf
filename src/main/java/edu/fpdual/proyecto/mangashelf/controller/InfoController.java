@@ -1,57 +1,78 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
+import edu.fpdual.proyecto.mangashelf.Mangashelf;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
 public class InfoController {
 
     @FXML
-    private ImageView  portadaManga;
+    private Label comentarioInfo;
 
     @FXML
-    private TextField numCapituloLeido;
+    private Label numCapitulosLeidos;
 
     @FXML
-    private  Button sumarBoton;
+    private void anyadirLeido() throws IOException {
 
-    @FXML
-    private Button restarBoton;
+        //Aqui se realizaria la consulta que añade el manga a leidos
 
-    @FXML
-    private TextField tituloManga;
-
-    @FXML
-    private TextField autorManga;
-
-    @FXML
-    private TextField generoManga;
-
-    @FXML
-    private TextField capituloManga;
-
-    @FXML
-    private Button pendienteBoton;
-
-    @FXML
-    private Button leyendoBoton;
-
-    @FXML
-    private Button leidoBoton;
-
-    @FXML
-    private Button finalizarBoton;
-
-    @FXML
-    private Button eliminarBoton;
-
-    @FXML
-    private void sumaCapitulo() throws IOException {
-
+        comentarioInfo.setText("El manga se ha añadido a Leídos");
 
     }
+
+    @FXML
+    private void anyadirEnCurso() throws IOException {
+
+        //Aqui se realizaria la consulta que añade el manga a leyendo
+
+        comentarioInfo.setText("El manga se ha añadido a En Curso");
+
+    }
+
+    @FXML
+    private void anyadirPendiente() throws IOException {
+
+        //Aqui se realizaria la consulta que añade el manga a pendiente
+
+        comentarioInfo.setText("El manga se ha añadido a Pendiente");
+
+    }
+
+    @FXML
+    private void eliminarLista() throws IOException {
+
+        //Aqui se realizaria la consulta que elimina el manga de la lista del usuario
+
+        comentarioInfo.setText("El manga se ha eliminado de su lista");
+
+    }
+
+    @FXML
+    private void volverIndice() throws IOException {
+
+        Mangashelf.setRoot("Main");
+
+    }
+
+    @FXML
+    private void sumarCapitulo() throws IOException {
+
+        //Aqui se realizaria la consulta que suma un capitulo a los capitulos leidos
+
+        numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) + 1));
+
+    }
+
+    @FXML
+    private void restarCapitulo() throws IOException {
+
+        //Aqui se realizaria la consulta que resta un capitulo a los capitulos leidos
+
+        numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) - 1));
+
+    }
+
 }

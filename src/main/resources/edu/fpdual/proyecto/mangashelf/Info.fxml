@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.MainController">
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.InfoController">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#volverIndice" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" text="MANGASHELF" textFill="WHITE">
+            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" onMouseClicked="#volverIndice" text="MANGASHELF" textFill="WHITE">
                <font>
                   <Font name="Goudy Stout" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Pane>
@@ -34,17 +44,23 @@
                   </ImageView>
                   <Pane fx:id="contadorPane" layoutX="9.0" layoutY="301.0" prefHeight="46.0" prefWidth="176.0" style="-fx-background-color: white;">
                      <children>
-                        <ImageView fx:id="sumarBoton" accessibleRole="INCREMENT_BUTTON" fitHeight="39.0" fitWidth="39.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="INCREMENT_BUTTON" fitHeight="39.0" fitWidth="39.0" layoutX="131.0" layoutY="4.0" onMouseClicked="#sumarCapitulo" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/mas.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <ImageView fx:id="restarBoton" accessibleRole="DECREMENT_BUTTON" fitHeight="39.0" fitWidth="39.0" layoutX="132.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="DECREMENT_BUTTON" fitHeight="39.0" fitWidth="39.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#restarCapitulo" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/menos.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <Label fx:id="numCapituloLeido" accessibleRole="TEXT_FIELD" layoutX="65.0" layoutY="8.0" text="130">
+                        <Label fx:id="numCapitulosLeidos" accessibleRole="TEXT_FIELD" alignment="CENTER" layoutX="56.0" layoutY="8.0" prefHeight="31.0" prefWidth="64.0" text="0">
                            <font>
                               <Font name="Eras Demi ITC" size="25.0" />
                            </font>
@@ -78,7 +94,7 @@
                         <Font name="Eras Medium ITC" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tituloManga" accessibleRole="TEXT_FIELD" layoutX="69.0" layoutY="34.0" text="Assanssination Classroom">
+                  <Label fx:id="tituloManga" accessibleRole="TEXT_FIELD" layoutX="69.0" layoutY="34.0" text="Assassination Classroom">
                      <font>
                         <Font name="Eras Demi ITC" size="18.0" />
                      </font>
@@ -129,56 +145,81 @@
                               <Font name="Eras Demi ITC" size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="pendienteBoton" accessibleRole="BUTTON" fitHeight="53.0" fitWidth="64.0" layoutX="24.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="BUTTON" fitHeight="53.0" fitWidth="64.0" layoutX="24.0" layoutY="33.0" onMouseClicked="#anyadirPendiente" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/amor.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <ImageView fx:id="leyendoBoton" accessibleRole="BUTTON" fitHeight="53.0" fitWidth="53.0" layoutX="146.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="BUTTON" fitHeight="53.0" fitWidth="53.0" layoutX="146.0" layoutY="33.0" onMouseClicked="#anyadirEnCurso" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/leyendo.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <ImageView fx:id="leidoBoton" accessibleRole="BUTTON" fitHeight="53.0" fitWidth="53.0" layoutX="268.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="BUTTON" fitHeight="53.0" fitWidth="53.0" layoutX="268.0" layoutY="33.0" onMouseClicked="#anyadirLeido" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/libros.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="finalizarEliminarPane" layoutX="226.0" layoutY="316.0" prefHeight="53.0" prefWidth="359.0">
+            <Pane fx:id="finalizarEliminarPane" layoutX="226.0" layoutY="316.0" prefHeight="39.0" prefWidth="359.0">
                <children>
-                  <Pane fx:id="finalizarBoton" accessibleRole="BUTTON" layoutX="14.0" layoutY="7.0" prefHeight="39.0" prefWidth="150.0">
+                  <Pane fx:id="finalizarBoton" accessibleRole="BUTTON" layoutX="14.0" prefHeight="39.0" prefWidth="150.0">
                      <children>
-                        <ImageView fitHeight="39.0" fitWidth="64.0" layoutX="111.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="39.0" fitWidth="64.0" layoutX="111.0" layoutY="1.0" onMouseClicked="#volverIndice" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/listo.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <Label prefHeight="39.0" prefWidth="106.0" text="Finalizar">
+                        <Label onMouseClicked="#volverIndice" prefHeight="39.0" prefWidth="106.0" text="Finalizar">
                            <font>
                               <Font name="Eras Demi ITC" size="24.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="eliminarBoton" layoutX="204.0" layoutY="7.0" prefHeight="39.0" prefWidth="140.0">
+                  <Pane fx:id="eliminarBoton" layoutX="204.0" prefHeight="39.0" prefWidth="140.0">
                      <children>
-                        <ImageView accessibleRole="BUTTON" fitHeight="32.0" fitWidth="39.0" layoutX="108.0" layoutY="1.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                        <ImageView accessibleRole="BUTTON" fitHeight="32.0" fitWidth="39.0" layoutX="108.0" layoutY="1.0" nodeOrientation="INHERIT" onMouseClicked="#eliminarLista" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@static.img/iconos/papelera.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
-                        <Label accessibleRole="BUTTON" prefHeight="39.0" prefWidth="106.0" text="Eliminar">
+                        <Label accessibleRole="BUTTON" onMouseClicked="#eliminarLista" prefHeight="39.0" prefWidth="106.0" text="Eliminar">
                            <font>
                               <Font name="Eras Demi ITC" size="24.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </Pane>
                </children></Pane>
+            <Label fx:id="comentarioInfo" alignment="CENTER" layoutX="225.0" layoutY="355.0" prefHeight="20.0" prefWidth="359.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
          </children>
       </Pane>
    </children>

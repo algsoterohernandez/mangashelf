@@ -141,7 +141,7 @@
          <content>
             <TilePane hgap="5.0" prefHeight="376.0" prefWidth="403.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#irInfo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@static.img/portadas/AssassinationClassroom.png" />
                      </image>
