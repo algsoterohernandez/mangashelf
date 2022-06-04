@@ -139,12 +139,17 @@ public class RegistroLoginController {
 
             //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
 
-            // Ejemplo : new UsuariosClient().createUser(emailUsuario, contrasenyaUsuario);
+            try {
+                Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
 
-            comentarioInicio.setText("");
+                new UsuariosClient().loginUser(newUser);
+                comentarioRegistro.setText("");
+                Mangashelf.setRoot("Main");
 
-            Mangashelf.setRoot("Main");
-
+            } catch (ExcepcionHTTP e) {
+                comentarioRegistro.setTextFill(Color.RED);
+                comentarioRegistro.setText("Email o contraseña errona");
+            }
         }
 
     }
@@ -171,6 +176,7 @@ public class RegistroLoginController {
             comentarioInicio.setText("Se ha enviado una nueva contraseña al email "+emailUsuario+" "+nuevaContrasenya);
 
         }
+
 
     }
 

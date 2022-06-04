@@ -7,12 +7,15 @@ module mangashelf {
     requires jakarta.xml.bind;
     requires jakarta.inject;
     requires jakarta.annotation;
+    requires jersey.client;
+    requires java.net.http;
 
     opens edu.fpdual.proyecto.mangashelf.controller to javafx.fxml;
+    opens edu.fpdual.proyecto.mangashelf.client to jersey.client;
 
     exports edu.fpdual.proyecto.mangashelf.controller;
     exports edu.fpdual.proyecto.mangashelf;
     exports edu.fpdual.proyecto.mangashelf.controller.dto;
-    opens edu.fpdual.proyecto.mangashelf to javafx.fxml;
+    exports edu.fpdual.proyecto.mangashelf.client;
 
 }
