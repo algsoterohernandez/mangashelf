@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -18,44 +19,50 @@
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#volverIndice" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" text="MANGASHELF" textFill="WHITE">
+            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" onMouseClicked="#volverIndice" text="MANGASHELF" textFill="WHITE">
                <font>
                   <Font name="Goudy Stout" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
-            <TextField layoutX="249.0" layoutY="4.0" prefHeight="25.0" prefWidth="125.0" promptText="Buscar ..." />
-            <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="218.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <TextField fx:id="buscador" layoutX="260.0" layoutY="4.0" onKeyPressed="#buscar" prefHeight="25.0" prefWidth="125.0" promptText="Buscar..." />
+            <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="225.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@static.img/iconos/lupa.png" />
                </image>
             </ImageView>
-            <ImageView accessibleRole="TEXT" fitHeight="28.0" fitWidth="25.0" layoutX="380.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView accessibleRole="TEXT" fitHeight="28.0" fitWidth="25.0" layoutX="395.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@static.img/iconos/filtro.png" />
                </image>
             </ImageView>
-            <MenuButton layoutX="407.0" layoutY="4.0" mnemonicParsing="false" text="Filtro">
+            <MenuButton fx:id="filtroMenu" layoutX="422.0" layoutY="4.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="73.0" text="Filtro">
               <items>
-                <MenuItem mnemonicParsing="false" text="Título" />
-                <MenuItem mnemonicParsing="false" text="Autor" />
-                  <MenuItem mnemonicParsing="false" text="Género" />
+                <MenuItem mnemonicParsing="false" onAction="#seleccionarTitulo" text="Título" />
+                <MenuItem mnemonicParsing="false" onAction="#seleccionarAutor" text="Autor" />
+                  <MenuItem mnemonicParsing="false" onAction="#seleccionarGenero" text="Género" />
               </items>
                <font>
-                  <Font name="Eras Demi ITC" size="12.0" />
+                  <Font name="Eras Demi ITC" size="11.0" />
                </font>
             </MenuButton>
-            <MenuButton layoutX="477.0" layoutY="4.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Orden">
+            <MenuButton fx:id="ordenMenu" layoutX="501.0" layoutY="4.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="94.0" text="Orden">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Ascendente" />
-                  <MenuItem mnemonicParsing="false" text="Descendente" />
+                  <MenuItem mnemonicParsing="false" onAction="#seleccionarAscendente" text="Ascendente" />
+                  <MenuItem mnemonicParsing="false" onAction="#seleccionarDescendente" text="Descendente" />
                </items>
                <font>
-                  <Font name="Eras Demi ITC" size="12.0" />
+                  <Font name="Eras Demi ITC" size="10.0" />
                </font>
             </MenuButton>
          </children>
@@ -64,57 +71,69 @@
       <Separator layoutY="36.0" prefHeight="3.0" prefWidth="600.0" />
       <AnchorPane layoutY="38.0" prefHeight="374.0" prefWidth="183.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="68.0" fitWidth="65.0" layoutX="61.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView accessibleRole="BUTTON" fitHeight="68.0" fitWidth="65.0" layoutX="61.0" layoutY="8.0" onMouseClicked="#seleccionarCambiarContrasenya" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@static.img/iconos/user.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Label fx:id="nombreUsuario" layoutX="29.0" layoutY="88.0" text="NOMBRE">
                <font>
                   <Font name="Goudy Stout" size="16.0" />
                </font>
             </Label>
-            <Pane accessibleRole="BUTTON" layoutY="135.0" prefHeight="53.0" prefWidth="183.0">
+            <Pane fx:id="leidosBoton" accessibleRole="BUTTON" layoutY="135.0" onMouseClicked="#seleccionarLeidos" prefHeight="65.0" prefWidth="183.0">
                <children>
-                  <Label accessibleRole="BUTTON" layoutX="80.0" layoutY="11.0" text="Leídos">
+                  <Label accessibleRole="BUTTON" layoutX="80.0" layoutY="17.0" text="Leídos">
                      <font>
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="21.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="21.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@static.img/iconos/libros.png" />
                      </image>
                   </ImageView>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Pane>
-            <Pane accessibleRole="BUTTON" layoutX="5.0" layoutY="204.0" prefHeight="53.0" prefWidth="177.0">
+            <Pane fx:id="enCursoBoton" accessibleRole="BUTTON" layoutY="209.0" onMouseClicked="#seleccionarEnCurso" prefHeight="65.0" prefWidth="183.0">
                <children>
-                  <Label accessibleRole="BUTTON" layoutX="62.0" layoutY="11.0" text="En Curso">
+                  <Label accessibleRole="BUTTON" layoutX="62.0" layoutY="16.0" text="En Curso">
                      <font>
                         <Font name="Century Gothic" size="24.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@static.img/iconos/leyendo.png" />
                      </image>
                   </ImageView>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Pane>
-            <Pane accessibleRole="BUTTON" layoutX="3.0" layoutY="279.0" prefHeight="53.0" prefWidth="177.0">
+            <Pane fx:id="pendienteBoton" accessibleRole="BUTTON" layoutY="284.0" onMouseClicked="#seleccionarPendiente" prefHeight="65.0" prefWidth="185.0">
                <children>
-                  <Label accessibleRole="BUTTON" layoutX="60.0" layoutY="11.0" prefHeight="31.0" prefWidth="114.0" text="Pendiente">
+                  <Label accessibleRole="BUTTON" layoutX="60.0" layoutY="17.0" prefHeight="31.0" prefWidth="114.0" text="Pendiente">
                      <font>
                         <Font name="Century Gothic" size="22.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@static.img/iconos/amor.png" />
                      </image>
                   </ImageView>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Pane>
          </children>
       </AnchorPane>

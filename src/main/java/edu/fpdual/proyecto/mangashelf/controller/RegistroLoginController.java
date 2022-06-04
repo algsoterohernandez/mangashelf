@@ -52,7 +52,7 @@ public class RegistroLoginController {
 
     }
 
-    //Borra los datos introducidos en la ventana de inicio de sesion
+    //Borra los datos introducidos en la ventana de inicio de sesión
     @FXML
     private void borrarIniciar() throws IOException {
 
@@ -61,7 +61,7 @@ public class RegistroLoginController {
 
     }
 
-    //Cambia a la ventana de iniciar sesion y borra los datos introducidos en la de registro
+    //Cambia a la ventana de iniciar sesión y borra los datos introducidos en la de registro
     @FXML
     private void cambiarInicioSesion() throws IOException {
 
@@ -73,8 +73,8 @@ public class RegistroLoginController {
 
     }
 
-    //Comprueba si el usuario ya posee una cuenta, si la tiene mostrara que ya tiene una cuenta,
-    //si no, le registrara en la base de datos y abrira la main
+    //Comprueba si el usuario ya posee una cuenta, si la tiene mostrará que ya tiene una cuenta,
+    //si no, le registrará en la base de datos y abrirá la main
     @FXML
     private void registrarUsuario() throws IOException {
 
@@ -93,8 +93,6 @@ public class RegistroLoginController {
 
         } else {
 
-            //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
-
             try {
                 Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
 
@@ -109,9 +107,9 @@ public class RegistroLoginController {
                     System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
 
                 }
-            }catch (ExcepcionHTTP e) {
+            } catch (ExcepcionHTTP e) {
                 comentarioRegistro.setTextFill(Color.RED);
-                comentarioRegistro.setText("El usuario ya existe, inicia sesión");
+                comentarioRegistro.setText("El usuario ya existe, inicie sesión");
             }
 
 
@@ -119,8 +117,8 @@ public class RegistroLoginController {
 
     }
 
-    //Comprueba si el usuario ya posee una cuenta, si la tiene abrira la main,
-    //si no, mostrara un mensaje de que esa cuenta no existe
+    //Comprueba si el usuario ya posee una cuenta, si la tiene abrirá la main,
+    //si no, mostrará un mensaje de que esa cuenta no existe
     @FXML
     private void iniciarSesionUsuario() throws IOException {
 
@@ -151,8 +149,8 @@ public class RegistroLoginController {
 
     }
 
-    //Si el usuario olvida su contrasenya, se genera una aleatoria, se actualiza en su base de datos y
-    //se le envia un correo con la nueva
+    //Si el usuario olvida su contraseña, se genera una aleatoria, se actualiza en su base de datos y
+    //se le envía un correo con la nueva
     @FXML
     private void generarContrasenya() throws IOException {
 
@@ -176,7 +174,7 @@ public class RegistroLoginController {
 
     }
 
-    //Generador de contrasenyas aleatorias
+    //Generador de contraseñas aleatorias
     public static String cadenaAleatoria(int longitud) {
 
         String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
