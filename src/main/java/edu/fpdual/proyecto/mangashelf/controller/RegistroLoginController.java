@@ -1,6 +1,9 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
+import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -92,19 +95,25 @@ public class RegistroLoginController {
 
             //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
 
-            // Ejemplo : new UsuariosClient().createUser(emailUsuario, contrasenyaUsuario);
+            try {
+                Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
 
-            comentarioRegistro.setText("");
+                new UsuariosClient().createUser(newUser);
+                comentarioRegistro.setText("");
+                Mangashelf.setRoot("Main");
 
-            Mangashelf.setRoot("Main");
+                if (suscripcion.isSelected()) {
 
-            if (suscripcion.isSelected()) {
+                    //Aquí debe enviarse una newsletter al email del usuario
 
-                //Aquí debe enviarse una newsletter al email del usuario
+                    System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
 
-                System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
-
+                }
+            }catch (ExcepcionHTTP e) {
+                comentarioRegistro.setTextFill(Color.RED);
+                comentarioRegistro.setText("El usuario ya existe, inicia sesión");
             }
+
 
         }
 

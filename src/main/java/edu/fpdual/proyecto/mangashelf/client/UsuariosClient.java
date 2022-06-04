@@ -1,6 +1,7 @@
 package edu.fpdual.proyecto.mangashelf.client;
 
 import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
+import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -19,10 +20,18 @@ public class UsuariosClient {
         this.webTarget = client.target("http://localhost:8080/MangaShelfWebService/api/");
     }
 
-    public void createUser(String email, String password) {
-        Response response = webTarget.path("usuarios/create/" + email + "/" + password)
-                .request()
-                .post(null);
-    }
+    public Usuarios createUser(Usuarios newUser) throws ExcepcionHTTP {
 
+        Response response = webTarget.path("usuarios")
+                .request()
+                .post(Entity.entity(newUser, MediaType.APPLICATION_JSON));
+
+        if (response.getStatus() == 200){
+            return response.readEntity(Usuarios.class);
+        }else{
+            throw new ExcepcionHTTP("El usuario ya existe");
+        }
+
+
+    }
 }

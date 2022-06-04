@@ -12,6 +12,7 @@ module mangashelf {
 
     exports edu.fpdual.proyecto.mangashelf.controller;
     exports edu.fpdual.proyecto.mangashelf;
+    exports edu.fpdual.proyecto.mangashelf.controller.dto;
     opens edu.fpdual.proyecto.mangashelf to javafx.fxml;
 
 }

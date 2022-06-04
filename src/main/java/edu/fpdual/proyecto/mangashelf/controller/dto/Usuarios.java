@@ -9,11 +9,6 @@ public class Usuarios {
     private String emailUsuario;
     private String contrasenyaUsuario;
 
-    public Usuarios(ResultSet result) throws SQLException {
-        setEmailUsuario(result.getString("EmailUsuario"));
-        setContrasenyaUsuario(result.getString("ContrasenyaUsuario"));
-    }
-
     public Usuarios(String emailUsuario, String contrasenyaUsuario) {
         this.emailUsuario = emailUsuario;
         this.contrasenyaUsuario = contrasenyaUsuario;
