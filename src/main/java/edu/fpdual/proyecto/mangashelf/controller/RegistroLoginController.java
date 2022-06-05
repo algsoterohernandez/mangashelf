@@ -143,12 +143,12 @@ public class RegistroLoginController {
                 Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
 
                 new UsuariosClient().loginUser(newUser);
-                comentarioRegistro.setText("");
+                comentarioInicio.setText("");
                 Mangashelf.setRoot("Main");
 
             } catch (ExcepcionHTTP e) {
-                comentarioRegistro.setTextFill(Color.RED);
-                comentarioRegistro.setText("Email o contraseña errona");
+                comentarioInicio.setTextFill(Color.RED);
+                comentarioInicio.setText("Email o contraseña errona");
             }
         }
 

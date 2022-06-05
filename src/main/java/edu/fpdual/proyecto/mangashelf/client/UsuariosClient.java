@@ -8,38 +8,45 @@ import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.glassfish.jersey.client.HttpUrlConnectorProvider;
-
+import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
+import org.glassfish.jersey.client.ClientConfig;
 public class UsuariosClient{
 
     private WebTarget webTarget;
 
     public UsuariosClient() {
-        Client client = ClientBuilder.newClient();
+        ClientConfig config = new ClientConfig();
+        config.connectorProvider(new ApacheConnectorProvider());
+
+        Client client = ClientBuilder.newClient(config);
         this.webTarget = client.target("http://localhost:8080/MangaShelfWebService/api/");
     }
 
     public Usuarios loginUser(Usuarios user) throws ExcepcionHTTP {
         Response response = webTarget.path("patch")
                 .request()
-                .property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true)
+                //.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true)
                 .build("PATCH", Entity.entity(user,MediaType.APPLICATION_JSON))
                 .invoke();
 
         if (response.getStatus() == 200){
             return response.readEntity(Usuarios.class);
-        }else{
+        }else if (response.getStatus() == 404){
             throw new ExcepcionHTTP("EMAIL o CONTRASEÑA erronea");
-        }
+        }else
+            throw new ExcepcionHTTP(String.valueOf(response.getStatus()));
 
 
     }
 
     public Usuarios createUser(Usuarios newUser) throws ExcepcionHTTP {
 
+
         Response response = webTarget.path("usuarios")
-                .request()
-                .post(Entity.entity(newUser, MediaType.APPLICATION_JSON));
+                .request(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .post(Entity.json(newUser));
+
 
         if (response.getStatus() == 200){
             return response.readEntity(Usuarios.class);
