@@ -23,7 +23,6 @@ public class CambioContrasenyaController {
     private void volverIndiceCambio() throws IOException{
 
         Mangashelf.setRoot("Main");
-
     }
 
     @FXML

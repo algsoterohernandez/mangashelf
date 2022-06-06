@@ -14,6 +14,10 @@ public class UsuariosClient{
 
     private WebTarget webTarget;
 
+    /**
+     * A través de webTarget conectamos con el servidor y así poder crear o validar
+     * en el caso que corresponda la cuenta del usuario.
+     * */
     public UsuariosClient() {
         ClientConfig config = new ClientConfig();
         config.connectorProvider(new ApacheConnectorProvider());
@@ -22,6 +26,10 @@ public class UsuariosClient{
         this.webTarget = client.target("http://localhost:8080/MangaShelfWebService/api/");
     }
 
+    /** Comprueba que los datos que introduce el usuario se encuentran en la BBDD.
+     * Según el código recibido comprobaremos si existe y es coincidente
+     * o si por el contrario algún dato es erróneo
+     * */
     public Usuarios loginUser(Usuarios user) throws ExcepcionHTTP {
         Response response = webTarget.path("patch")
                 .request()
@@ -39,6 +47,9 @@ public class UsuariosClient{
 
     }
 
+    /** Comprueba que los datos que introduce el usuario no se encuentran en la BBDD.
+     * Si existe en la BBDD, no registra nada y saltará la excepción.
+     * */
     public Usuarios createUser(Usuarios newUser) throws ExcepcionHTTP {
 
 
@@ -53,7 +64,5 @@ public class UsuariosClient{
         }else{
             throw new ExcepcionHTTP("El usuario ya existe");
         }
-
-
     }
 }

@@ -43,7 +43,10 @@ public class RegistroLoginController {
     @FXML
     private CheckBox suscripcion;
 
-    //Borra los datos introducidos en la ventana de registro
+
+    /** La función borrarRegistrar():
+     * Permite borrar los datos introducidos en la ventana de registro (crear cuenta).
+     * */
     @FXML
     private void borrarRegistrar() throws IOException {
 
@@ -52,7 +55,9 @@ public class RegistroLoginController {
 
     }
 
-    //Borra los datos introducidos en la ventana de inicio de sesión
+    /** La función borrarIniciar():
+     * Permite borrar los datos introducidos en la ventana de inicio de sesión (iniciar sesión)
+     * */
     @FXML
     private void borrarIniciar() throws IOException {
 
@@ -61,7 +66,10 @@ public class RegistroLoginController {
 
     }
 
-    //Cambia a la ventana de iniciar sesión y borra los datos introducidos en la de registro
+    /** La función cambiarInicioSesion():
+     * Cambia a la ventanan de inicio de sesión y elimina los datos introducidos en la ventana
+     * del registro
+     * */
     @FXML
     private void cambiarInicioSesion() throws IOException {
 
@@ -73,8 +81,11 @@ public class RegistroLoginController {
 
     }
 
-    //Comprueba si el usuario ya posee una cuenta, si la tiene mostrará que ya tiene una cuenta,
-    //si no, le registrará en la base de datos y abrirá la main
+    /** La función registrarUsuario():
+     * Hace una comprobación para ver si el usuario ya tiene cuenta.
+     * Si el usuario no tiene cuenta, lo registrará en la BBDD y abrirá la pantalla principal de la app
+     * Además si ha seleccionado la suscripción a la newsletter, se enviará un email confirmando suscripción
+     * */
     @FXML
     private void registrarUsuario() throws IOException {
 
@@ -103,22 +114,20 @@ public class RegistroLoginController {
                 if (suscripcion.isSelected()) {
 
                     //Aquí debe enviarse una newsletter al email del usuario
-
                     System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
-
                 }
             } catch (ExcepcionHTTP e) {
                 comentarioRegistro.setTextFill(Color.RED);
                 comentarioRegistro.setText("El usuario ya existe, inicie sesión");
             }
-
-
         }
-
     }
 
-    //Comprueba si el usuario ya posee una cuenta, si la tiene abrirá la main,
-    //si no, mostrará un mensaje de que esa cuenta no existe
+   /** La función iniciarSesionUsuario():
+    * Realiza comprobación de igualdad con los datos de la BBDD.
+    * Si los datos introducidos con coincidentes, abrirá la pantalla principal de la app,
+    * en caso contrario saltará una excepción.
+    * */
     @FXML
     private void iniciarSesionUsuario() throws IOException {
 
@@ -154,8 +163,13 @@ public class RegistroLoginController {
 
     }
 
-    //Si el usuario olvida su contraseña, se genera una aleatoria, se actualiza en su base de datos y
-    //se le envía un correo con la nueva
+   /** La función generarContrasenya():
+    * Si el usuario ha olvidado su contraseña, se generará una nueva contraseña aleatoria.
+    * Para ello, al usuario se le pedirá que indique su email y se le enviará.
+    * La contraseña aleatoria sustituirá a la contraseña inicial en la BBDD.
+    * El usuario podrá acceder con esa contraseña y desde su perfil modificarla para poner una nueva
+    * contraseña.
+    * */
     @FXML
     private void generarContrasenya() throws IOException {
 
@@ -174,13 +188,14 @@ public class RegistroLoginController {
 
             comentarioInicio.setTextFill(Color.BLACK);
             comentarioInicio.setText("Se ha enviado una nueva contraseña al email "+emailUsuario+" "+nuevaContrasenya);
-
         }
-
-
     }
 
-    //Generador de contraseñas aleatorias
+
+   /** La función cadenaAleatoria():
+    * Permite generar una cadena de caracteres aleatoria como medida de seguridad para el usuario
+    * y la designará como una nueva contraseña
+    * */
     public static String cadenaAleatoria(int longitud) {
 
         String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
