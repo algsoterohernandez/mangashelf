@@ -118,7 +118,7 @@ public class RegistroLoginController {
                 }
             } catch (ExcepcionHTTP e) {
                 comentarioRegistro.setTextFill(Color.RED);
-                comentarioRegistro.setText("El usuario ya existe, inicie sesión");
+                comentarioRegistro.setText(e.getMessage());
             }
         }
     }
@@ -157,7 +157,7 @@ public class RegistroLoginController {
 
             } catch (ExcepcionHTTP e) {
                 comentarioInicio.setTextFill(Color.RED);
-                comentarioInicio.setText("Email o contraseña errona");
+                comentarioInicio.setText(e.getMessage());
             }
         }
 
