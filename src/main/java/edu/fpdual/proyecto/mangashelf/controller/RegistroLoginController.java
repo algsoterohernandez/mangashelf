@@ -16,6 +16,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RegistroLoginController {
 
+    static Usuarios actualUser;
+
     private static String emailUsuario;
     private static String contrasenyaUsuario;
 
@@ -107,7 +109,8 @@ public class RegistroLoginController {
             try {
                 Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
 
-                new UsuariosClient().createUser(newUser);
+                actualUser = new UsuariosClient().createUser(newUser);
+
                 comentarioRegistro.setText("");
                 Mangashelf.setRoot("Main");
 
@@ -149,9 +152,10 @@ public class RegistroLoginController {
             //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
 
             try {
-                Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
+                Usuarios user = new Usuarios(emailUsuario, contrasenyaUsuario);
 
-                new UsuariosClient().loginUser(newUser);
+                actualUser = new UsuariosClient().loginUser(user);
+                System.out.println(actualUser.getEmailUsuario());
                 comentarioInicio.setText("");
                 Mangashelf.setRoot("Main");
 

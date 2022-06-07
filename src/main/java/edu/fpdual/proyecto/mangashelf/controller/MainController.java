@@ -1,6 +1,7 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
@@ -13,6 +14,8 @@ import javafx.scene.paint.Color;
 import java.io.IOException;
 
 public class MainController {
+
+    private static Usuarios actualUser;
 
     @FXML
     private TextField buscador;

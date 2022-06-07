@@ -65,4 +65,16 @@ public class UsuariosClient{
             throw new ExcepcionHTTP("Bad request");
         }
     }
+
+    public void deleteUser(String email) throws ExcepcionHTTP {
+
+        Response response = webTarget.path(email)
+                .request()
+                .delete();
+
+        if (response.getStatus() != 200){
+            throw new ExcepcionHTTP("Error al borrar");
+        }
+    }
+
 }

@@ -1,12 +1,15 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
 public class InfoController {
+
+    private static Usuarios actualUser;
 
     @FXML
     private Label comentarioInfo;
