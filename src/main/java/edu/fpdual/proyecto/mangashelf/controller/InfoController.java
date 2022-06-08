@@ -17,7 +17,7 @@ public class InfoController {
     private Label numCapitulosLeidos;
 
     @FXML
-    private void anyadirLeido() throws IOException {
+    private void anyadirLeido(){
 
         //Aqui se realizaria la consulta que añade el manga a leidos
 
@@ -26,7 +26,7 @@ public class InfoController {
     }
 
     @FXML
-    private void anyadirEnCurso() throws IOException {
+    private void anyadirEnCurso(){
 
         //Aqui se realizaria la consulta que añade el manga a leyendo
 
@@ -35,7 +35,7 @@ public class InfoController {
     }
 
     @FXML
-    private void anyadirPendiente() throws IOException {
+    private void anyadirPendiente(){
 
         //Aqui se realizaria la consulta que añade el manga a pendiente
 
@@ -44,7 +44,7 @@ public class InfoController {
     }
 
     @FXML
-    private void eliminarLista() throws IOException {
+    private void eliminarLista(){
 
         //Aqui se realizaria la consulta que elimina el manga de la lista del usuario
 
@@ -60,7 +60,7 @@ public class InfoController {
     }
 
     @FXML
-    private void sumarCapitulo() throws IOException {
+    private void sumarCapitulo(){
 
         //Aqui se realizaria la consulta que suma un capitulo a los capitulos leidos
 
@@ -69,7 +69,7 @@ public class InfoController {
     }
 
     @FXML
-    private void restarCapitulo() throws IOException {
+    private void restarCapitulo(){
 
         //Aqui se realizaria la consulta que resta un capitulo a los capitulos leidos
 

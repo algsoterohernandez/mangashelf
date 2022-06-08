@@ -50,7 +50,7 @@ public class RegistroLoginController {
      * Permite borrar los datos introducidos en la ventana de registro (crear cuenta).
      * */
     @FXML
-    private void borrarRegistrar() throws IOException {
+    private void borrarRegistrar(){
 
         emailRegistro.clear();
         contrasenyaRegistro.clear();
@@ -61,7 +61,7 @@ public class RegistroLoginController {
      * Permite borrar los datos introducidos en la ventana de inicio de sesión (iniciar sesión)
      * */
     @FXML
-    private void borrarIniciar() throws IOException {
+    private void borrarIniciar(){
 
         emailInicio.clear();
         contrasenyaInicio.clear();
@@ -73,7 +73,7 @@ public class RegistroLoginController {
      * del registro
      * */
     @FXML
-    private void cambiarInicioSesion() throws IOException {
+    private void cambiarInicioSesion(){
 
         pestanyas.getSelectionModel().select(1);
 
@@ -175,7 +175,7 @@ public class RegistroLoginController {
     * contraseña.
     * */
     @FXML
-    private void generarContrasenya() throws IOException {
+    private void generarContrasenya(){
 
         emailUsuario = emailInicio.getText();
 

@@ -1,7 +1,5 @@
 package edu.fpdual.proyecto.mangashelf.controller.dto;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Objects;
 
 public class Usuarios {

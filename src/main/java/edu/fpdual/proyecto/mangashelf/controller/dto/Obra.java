@@ -6,14 +6,14 @@ import java.util.Objects;
 
 public class Obra {
 
+    private String id;
     private String titulo;
     private int anyoPublicacion;
-    //anyoTermino values: int, "En publicacion"
     private String anyoTermino;
-    //capitulosTotales values: int, "En publicacion"
     private String capitulosTotales;
 
     public Obra(ResultSet result) throws SQLException {
+        setTitulo(result.getString("Id"));
         setTitulo(result.getString("Titulo"));
         setAnyoPublicacion(result.getInt("AnyoPublicacion"));
         setAnyoTermino(result.getString("AnyoTermino"));
@@ -21,6 +21,7 @@ public class Obra {
     }
 
     public Obra(String titulo, int anyoPublicacion, String anyoTermino, String capitulosTotales) {
+        this.id = id;
         this.titulo = titulo;
         this.anyoPublicacion = anyoPublicacion;
         this.anyoTermino = anyoTermino;
@@ -28,6 +29,14 @@ public class Obra {
     }
 
     public Obra() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitulo() {

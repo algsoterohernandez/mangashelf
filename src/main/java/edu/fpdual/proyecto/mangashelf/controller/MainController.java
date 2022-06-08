@@ -3,21 +3,30 @@ package edu.fpdual.proyecto.mangashelf.controller;
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import javafx.fxml.FXML;
+import javafx.scene.AccessibleRole;
+import javafx.scene.Cursor;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class MainController {
 
 
     @FXML
     private TextField buscador;
+
+    @FXML
+    private TilePane portadasMangas;
 
     @FXML
     private MenuButton filtroMenu;
@@ -43,7 +52,7 @@ public class MainController {
 
     //Cuando se haga click en Mangashelf, o en su logo, se reiniciará la página
     @FXML
-    private void volverIndice() throws IOException {
+    private void volverIndice(){
 
         leidosBoton.setBackground(Background.fill(Color.WHITE));
         enCursoBoton.setBackground(Background.fill(Color.WHITE));
@@ -70,7 +79,7 @@ public class MainController {
 
     //Cuando el botón Leídos es pulsado, cambia de color y se muestran los mangas leídos por el usuario
     @FXML
-    private void seleccionarLeidos() throws IOException {
+    private void seleccionarLeidos(){
 
         leidosBoton.setBackground(Background.fill(Color.LIGHTGRAY));
         enCursoBoton.setBackground(Background.fill(Color.WHITE));
@@ -82,7 +91,7 @@ public class MainController {
 
     //Cuando el botón En Curso es pulsado, cambia de color y se muestran los mangas que se encuentran en curso por el usuario
     @FXML
-    private void seleccionarEnCurso() throws IOException {
+    private void seleccionarEnCurso(){
 
         leidosBoton.setBackground(Background.fill(Color.WHITE));
         enCursoBoton.setBackground(Background.fill(Color.LIGHTGRAY));
@@ -94,7 +103,7 @@ public class MainController {
 
     //Cuando el botón En Curso es pulsado, cambia de color y se muestran los mangas que se encuentran pendientes por el usuario
     @FXML
-    private void seleccionarPendiente() throws IOException {
+    private void seleccionarPendiente(){
 
         leidosBoton.setBackground(Background.fill(Color.WHITE));
         enCursoBoton.setBackground(Background.fill(Color.WHITE));
@@ -114,7 +123,7 @@ public class MainController {
 
     //Se selecciona la opción Título en el filtro
     @FXML
-    private void seleccionarTitulo() throws IOException {
+    private void seleccionarTitulo(){
 
         filtroMenu.setText("Título");
 
@@ -122,7 +131,7 @@ public class MainController {
 
     //Se selecciona la opción Autor en el filtro
     @FXML
-    private void seleccionarAutor() throws IOException {
+    private void seleccionarAutor(){
 
         filtroMenu.setText("Autor");
 
@@ -130,7 +139,7 @@ public class MainController {
 
     //Se selecciona la opción Género en el filtro
     @FXML
-    private void seleccionarGenero() throws IOException {
+    private void seleccionarGenero(){
 
         filtroMenu.setText("Género");
 
@@ -138,7 +147,7 @@ public class MainController {
 
     //Se selecciona la opción Ascendente en el orden
     @FXML
-    private void seleccionarAscendente() throws IOException {
+    private void seleccionarAscendente(){
 
         ordenMenu.setText("Ascendente");
 
@@ -146,7 +155,7 @@ public class MainController {
 
     //Se selecciona la opción Descendente en el orden
     @FXML
-    private void seleccionarDescendente() throws IOException {
+    private void seleccionarDescendente(){
 
         ordenMenu.setText("Descendente");
 
@@ -154,7 +163,7 @@ public class MainController {
 
     //Realiza una búsqueda predeterminada por título o en base a la selección del filtro y orden
     @FXML
-    private void realizarBusqueda() throws IOException {
+    private void realizarBusqueda(){
 
         String busqueda = buscador.getText();
 
@@ -166,21 +175,21 @@ public class MainController {
 
             if (ordenMenu.getText().equals("Ascendente")) {
 
-                //Aqui se debe realizar la busqueda de titulos ascendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Titulo Ascendente");
+                //Aqui se debe realizar la busqueda de titulos ascendentes y mostrar los mangas
 
             } else if (ordenMenu.getText().equals("Descendente")) {
 
-                //Aqui se debe realizar la busqueda de titulos descendentes y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Titulo Descendente");
+                //Aqui se debe realizar la busqueda de titulos descendentes y mostrar los mangas
 
             } else {
 
-                //Aqui se debe realizar la busqueda de titulos sin orden y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Titulo Sin Orden");
+                //Aqui se debe realizar la busqueda de titulos sin orden y mostrar los mangas
 
             }
 
@@ -188,21 +197,21 @@ public class MainController {
 
             if (ordenMenu.getText().equals("Ascendente")) {
 
-                //Aqui se debe realizar la busqueda de autor ascendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Autor Ascendente");
+                //Aqui se debe realizar la busqueda de autor ascendente y mostrar los mangas
 
             } else if (ordenMenu.getText().equals("Descendente")) {
 
-                //Aqui se debe realizar la busqueda de autor descendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Autor Descendente");
+                //Aqui se debe realizar la busqueda de autor descendente y mostrar los mangas
 
             } else {
 
-                //Aqui se debe realizar la busqueda de autor sin orden y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Autor Sin Orden");
+                //Aqui se debe realizar la busqueda de autor sin orden y mostrar los mangas
 
             }
 
@@ -210,21 +219,21 @@ public class MainController {
 
             if (ordenMenu.getText().equals("Ascendente")) {
 
-                //Aqui se debe realizar la busqueda de genero ascendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Género Ascendente");
+                //Aqui se debe realizar la busqueda de genero ascendente y mostrar los mangas
 
             } else if (ordenMenu.getText().equals("Descendente")) {
 
-                //Aqui se debe realizar la busqueda de genero descendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Género Descendente");
+                //Aqui se debe realizar la busqueda de genero descendente y mostrar los mangas
 
             } else {
 
-                //Aqui se debe realizar la busqueda de genero sin orden y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Género Sin Orden");
+                //Aqui se debe realizar la busqueda de genero sin orden y mostrar los mangas
 
             }
 
@@ -232,25 +241,46 @@ public class MainController {
 
             if (ordenMenu.getText().equals("Ascendente")) {
 
-                //Aqui se debe realizar la busqueda de titulo ascendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Titulo Ascendente");
+                //Aqui se debe realizar la busqueda de titulo ascendente y mostrar los mangas
 
             } else if (ordenMenu.getText().equals("Descendente")) {
 
-                //Aqui se debe realizar la busqueda de titulo descendente y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Titulo Descendente");
+                //Aqui se debe realizar la busqueda de titulo descendente y mostrar los mangas
 
             } else {
 
-                //Aqui se debe realizar la busqueda de titulo sin orden y mostrar los mangas
+                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-                System.out.println("Titulo Sin Orden");
+                //Aqui se debe realizar la busqueda de titulo sin orden y mostrar los mangas
 
             }
 
         }
+
+    }
+
+    @FXML
+    private void crearPortada(String nombreManga){
+
+        Image portada = new Image("edu/fpdual/proyecto/mangashelf/static.img/portadas/"+nombreManga+".png");
+        ImageView imagenView = new ImageView(portada);
+        imagenView.setOnMouseClicked(mouseEvent -> {
+            try {
+                irInfo();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        imagenView.setFitHeight(159);
+        imagenView.setFitWidth(98);
+        imagenView.setAccessibleRole(AccessibleRole.BUTTON);
+        imagenView.setCursor(Cursor.HAND);
+
+        portadasMangas.getChildren().add(imagenView);
 
     }
 
