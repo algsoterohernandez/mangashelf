@@ -1,6 +1,8 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
+import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -9,6 +11,7 @@ import javafx.scene.paint.Color;
 import java.io.IOException;
 
 public class CambioContrasenyaController {
+
 
     @FXML
     private PasswordField nuevaContrasenya;
@@ -34,14 +37,23 @@ public class CambioContrasenyaController {
     }
 
     @FXML
-    private void enviarCambioContrasenya() throws IOException{
+    private void enviarCambioContrasenya() throws IOException, ExcepcionHTTP {
 
         if (nuevaContrasenya.getText().equals(confirmacionContrasenya.getText())) {
 
             //Aqui se debe realizar la consulta del cambio de contraseña
 
-            mensajeCambio.setTextFill(Color.BLACK);
-            mensajeCambio.setText("Contraseña actualizada correctamente");
+            try{
+                RegistroLoginController.actualUser.setContrasenyaUsuario(nuevaContrasenya.getText());
+                new UsuariosClient().changePwd(RegistroLoginController.actualUser);
+
+                mensajeCambio.setTextFill(Color.BLACK);
+                mensajeCambio.setText("Contraseña actualizada correctamente");
+            }catch (ExcepcionHTTP e){
+                mensajeCambio.setTextFill(Color.RED);
+                mensajeCambio.setText(e.getMessage());
+            }
+
 
         } else {
 
@@ -54,10 +66,19 @@ public class CambioContrasenyaController {
 
     @FXML
     private void eliminarCuenta() throws IOException{
+        try{
+            new UsuariosClient().deleteUser(RegistroLoginController.actualUser.getEmailUsuario());
+            Mangashelf.setRoot("RegistroLogin");
 
-        //Aqui se debe realizar la consulta para eliminar cuenta
+        }catch (ExcepcionHTTP e){
 
-        Mangashelf.setRoot("RegistroLogin");
+            mensajeCambio.setTextFill(Color.RED);
+            mensajeCambio.setText(e.getMessage());
+        }
+
+
+
+
 
     }
 
