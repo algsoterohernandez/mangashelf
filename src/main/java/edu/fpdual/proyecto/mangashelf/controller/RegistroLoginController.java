@@ -152,10 +152,10 @@ public class RegistroLoginController {
             //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
 
             try {
-                Usuarios user = new Usuarios(emailUsuario, contrasenyaUsuario);
 
+                Usuarios user = new Usuarios(emailUsuario, contrasenyaUsuario);
                 actualUser = new UsuariosClient().loginUser(user);
-                System.out.println(actualUser.getEmailUsuario());
+
                 comentarioInicio.setText("");
                 Mangashelf.setRoot("Main");
 
@@ -175,7 +175,7 @@ public class RegistroLoginController {
     * contraseña.
     * */
     @FXML
-    private void generarContrasenya(){
+    private void generarContrasenya() throws ExcepcionHTTP {
 
         emailUsuario = emailInicio.getText();
 

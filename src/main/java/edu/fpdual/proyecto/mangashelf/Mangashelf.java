@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,8 @@ public class Mangashelf extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("RegistroLogin"));
         stage.setScene(scene);
+        stage.getIcons().add(new Image("edu/fpdual/proyecto/mangashelf/static.img/logos/logo_mangashelf_transparente.png"));
+        stage.setTitle("Mangashelf");
         stage.show();
     }
 
@@ -26,7 +29,7 @@ public class Mangashelf extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Mangashelf.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }

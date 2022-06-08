@@ -39,7 +39,7 @@ public class UsuariosClient{
         if (response.getStatus() == 200){
             return response.readEntity(Usuarios.class);
         }else if (response.getStatus() == 404){
-            throw new ExcepcionHTTP("EMAIL o CONTRASEÑA erronea");
+            throw new ExcepcionHTTP("EMAIL o CONTRASEÑA erróneos");
         }else
             throw new ExcepcionHTTP("Bad request");
 
