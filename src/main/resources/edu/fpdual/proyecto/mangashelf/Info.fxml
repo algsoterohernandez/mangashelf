@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.InfoController">
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.InfoController">
    <children>
       <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
          <children>
@@ -136,46 +133,71 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="anyadirListaPane" layoutX="226.0" layoutY="212.0" prefHeight="104.0" prefWidth="359.0" style="-fx-background-color: black;">
+            <Pane fx:id="anyadirListaPane" layoutX="226.0" layoutY="212.0" prefHeight="114.0" prefWidth="359.0" style="-fx-background-color: black;">
                <children>
-                  <Pane layoutX="7.0" layoutY="7.0" prefHeight="90.0" prefWidth="345.0" style="-fx-background-color: #B2EBF2;">
+                  <Pane layoutX="7.0" layoutY="6.0" prefHeight="102.0" prefWidth="345.0" style="-fx-background-color: #B2EBF2;">
                      <children>
                         <Label layoutX="63.0" layoutY="3.0" text="Añadir a la siguiente lista:">
                            <font>
                               <Font name="Eras Demi ITC" size="18.0" />
                            </font>
                         </Label>
-                        <ImageView accessibleRole="BUTTON" fitHeight="53.0" fitWidth="64.0" layoutX="24.0" layoutY="33.0" onMouseClicked="#anyadirPendiente" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@static.img/iconos/amor.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView accessibleRole="BUTTON" fitHeight="53.0" fitWidth="53.0" layoutX="146.0" layoutY="33.0" onMouseClicked="#anyadirEnCurso" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@static.img/iconos/leyendo.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                        <ImageView accessibleRole="BUTTON" fitHeight="53.0" fitWidth="53.0" layoutX="268.0" layoutY="33.0" onMouseClicked="#anyadirLeido" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@static.img/iconos/libros.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
+                        <Pane layoutX="134.0" layoutY="23.0" prefHeight="74.0" prefWidth="91.0">
+                           <children>
+                              <Label layoutX="15.0" layoutY="53.0" text="En curso">
+                                 <font>
+                                    <Font name="Eras Medium ITC" size="16.0" />
+                                 </font>
+                              </Label>
+                              <ImageView accessibleRole="BUTTON" fitHeight="46.0" fitWidth="49.0" layoutX="23.0" layoutY="6.0" onMouseClicked="#anyadirEnCurso" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@static.img/iconos/leyendo.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children></Pane>
+                        <Pane layoutX="8.0" layoutY="25.0" prefHeight="74.0" prefWidth="91.0">
+                           <children>
+                              <ImageView accessibleRole="BUTTON" fitHeight="46.0" fitWidth="46.0" layoutX="22.0" layoutY="5.0" onMouseClicked="#anyadirPendiente" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@static.img/iconos/amor.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <Label layoutX="6.0" layoutY="51.0" text="Pendientes">
+                                 <font>
+                                    <Font name="Eras Medium ITC" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="246.0" layoutY="23.0" prefHeight="74.0" prefWidth="91.0">
+                           <children>
+                              <Label layoutX="7.0" layoutY="53.0" text="Finalizados">
+                                 <font>
+                                    <Font name="Eras Medium ITC" size="16.0" />
+                                 </font>
+                              </Label>
+                              <ImageView accessibleRole="BUTTON" fitHeight="46.0" fitWidth="46.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#anyadirLeido" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@static.img/iconos/libros.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children></Pane>
                      </children>
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="finalizarEliminarPane" layoutX="226.0" layoutY="316.0" prefHeight="39.0" prefWidth="359.0">
+            <Pane fx:id="finalizarEliminarPane" layoutX="226.0" layoutY="329.0" prefHeight="39.0" prefWidth="359.0">
                <children>
-                  <Pane fx:id="finalizarBoton" accessibleRole="BUTTON" layoutX="14.0" prefHeight="39.0" prefWidth="150.0">
+                  <Pane fx:id="finalizarBoton" accessibleRole="BUTTON" layoutX="14.0" layoutY="3.0" prefHeight="39.0" prefWidth="150.0">
                      <children>
                         <ImageView fitHeight="39.0" fitWidth="64.0" layoutX="111.0" layoutY="1.0" onMouseClicked="#volverIndice" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -185,7 +207,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <Label onMouseClicked="#volverIndice" prefHeight="39.0" prefWidth="106.0" text="Finalizar">
+                        <Label layoutY="1.0" onMouseClicked="#volverIndice" prefHeight="39.0" prefWidth="106.0" text="Finalizar">
                            <font>
                               <Font name="Eras Demi ITC" size="24.0" />
                            </font>
@@ -195,7 +217,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="eliminarBoton" layoutX="204.0" prefHeight="39.0" prefWidth="140.0">
+                  <Pane fx:id="eliminarBoton" layoutX="205.0" layoutY="4.0" prefHeight="39.0" prefWidth="140.0">
                      <children>
                         <ImageView accessibleRole="BUTTON" fitHeight="32.0" fitWidth="39.0" layoutX="108.0" layoutY="1.0" nodeOrientation="INHERIT" onMouseClicked="#eliminarLista" pickOnBounds="true" preserveRatio="true">
                            <image>
