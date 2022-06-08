@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class CambioContrasenyaController {
 
-
     @FXML
     private PasswordField nuevaContrasenya;
 
@@ -75,10 +74,6 @@ public class CambioContrasenyaController {
             mensajeCambio.setTextFill(Color.RED);
             mensajeCambio.setText(e.getMessage());
         }
-
-
-
-
 
     }
 

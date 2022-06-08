@@ -1,10 +1,11 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
-import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.AccessibleRole;
 import javafx.scene.Cursor;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -18,9 +19,13 @@ import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
+    @FXML
+    public Label nombreUsuario;
 
     @FXML
     private TextField buscador;
@@ -255,6 +260,8 @@ public class MainController {
 
                 portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
+                nombreUsuario.setText(RegistroLoginController.actualUser.getEmailUsuario());
+
                 //Aqui se debe realizar la busqueda de titulo sin orden y mostrar los mangas
 
             }
@@ -281,6 +288,13 @@ public class MainController {
         imagenView.setCursor(Cursor.HAND);
 
         portadasMangas.getChildren().add(imagenView);
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        nombreUsuario.setText(RegistroLoginController.actualUser.getEmailUsuario());
 
     }
 
