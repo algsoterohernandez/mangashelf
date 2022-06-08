@@ -24,6 +24,7 @@ public class ObraUsuario {
         this.obra = obra;
         this.capitulosLeidos = capitulosLeidos;
         this.estado = estado;
+
     }
 
     public ObraUsuario() {

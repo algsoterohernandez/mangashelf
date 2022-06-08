@@ -1,6 +1,13 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.client.AutorClient;
+import edu.fpdual.proyecto.mangashelf.client.GeneroClient;
+import edu.fpdual.proyecto.mangashelf.client.ObraClient;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Genero;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
+import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.AccessibleRole;
@@ -18,11 +25,12 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
+    static String obraSeleccionada;
 
     @FXML
     public Label nombreUsuario;
@@ -36,8 +44,6 @@ public class MainController implements Initializable {
     @FXML
     private MenuButton filtroMenu;
 
-    @FXML
-    private MenuButton ordenMenu;
 
     @FXML
     private Pane leidosBoton;
@@ -48,10 +54,69 @@ public class MainController implements Initializable {
     @FXML
     private Pane pendienteBoton;
 
+
+
     @FXML
     private void irInfo() throws IOException {
-
         Mangashelf.setRoot("Info");
+
+    }
+    @FXML
+    public void findByNameGenero(String nombre){
+        try{
+            Genero[] generos = new GeneroClient().findByName(nombre);
+
+            for(Genero genero : generos){
+                crearPortada(genero.getTitulo());
+            }
+
+        }catch (ExcepcionHTTP e){
+            System.out.println(e);
+        }
+
+    }
+    @FXML
+    public void findByNameAutor(String nombre){
+        try{
+            Autor[] autores = new AutorClient().findByName(nombre);
+
+            for(Autor autor : autores){
+                crearPortada(autor.getTitulo());
+            }
+
+        }catch (ExcepcionHTTP e){
+            System.out.println(e);
+        }
+
+    }
+
+    @FXML
+    public void findAllObras(){
+        try{
+            Obra[] obras = new ObraClient().findAll();
+
+            for(Obra obra : obras){
+                crearPortada(obra.getId());
+            }
+
+        }catch (ExcepcionHTTP e){
+            System.out.println(e);
+        }
+
+    }
+
+    @FXML
+    public void findByNameObras(String nombre){
+        try{
+            Obra[] obras = new ObraClient().findByName(nombre);
+
+            for(Obra obra : obras){
+                crearPortada(obra.getId());
+            }
+
+        }catch (ExcepcionHTTP e){
+            System.out.println(e);
+        }
 
     }
 
@@ -63,10 +128,10 @@ public class MainController implements Initializable {
         enCursoBoton.setBackground(Background.fill(Color.WHITE));
         pendienteBoton.setBackground(Background.fill(Color.WHITE));
         filtroMenu.setText("Filtro");
-        ordenMenu.setText("Orden");
         buscador.setText("");
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+        findAllObras();
 
-        //Aqui se debe realizar la consulta para que muestre todos los mangas
 
     }
 
@@ -150,22 +215,6 @@ public class MainController implements Initializable {
 
     }
 
-    //Se selecciona la opción Ascendente en el orden
-    @FXML
-    private void seleccionarAscendente(){
-
-        ordenMenu.setText("Ascendente");
-
-    }
-
-    //Se selecciona la opción Descendente en el orden
-    @FXML
-    private void seleccionarDescendente(){
-
-        ordenMenu.setText("Descendente");
-
-    }
-
     //Realiza una búsqueda predeterminada por título o en base a la selección del filtro y orden
     @FXML
     private void realizarBusqueda(){
@@ -178,93 +227,25 @@ public class MainController implements Initializable {
 
         if (filtroMenu.getText().equals("Título")) {
 
-            if (ordenMenu.getText().equals("Ascendente")) {
+            portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+            findByNameObras(busqueda);
 
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de titulos ascendentes y mostrar los mangas
-
-            } else if (ordenMenu.getText().equals("Descendente")) {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de titulos descendentes y mostrar los mangas
-
-            } else {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de titulos sin orden y mostrar los mangas
-
-            }
 
         } else if (filtroMenu.getText().equals("Autor")) {
 
-            if (ordenMenu.getText().equals("Ascendente")) {
+            portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+            findByNameAutor(busqueda);
 
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de autor ascendente y mostrar los mangas
-
-            } else if (ordenMenu.getText().equals("Descendente")) {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de autor descendente y mostrar los mangas
-
-            } else {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de autor sin orden y mostrar los mangas
-
-            }
 
         } else if (filtroMenu.getText().equals("Género")) {
 
-            if (ordenMenu.getText().equals("Ascendente")) {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de genero ascendente y mostrar los mangas
-
-            } else if (ordenMenu.getText().equals("Descendente")) {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de genero descendente y mostrar los mangas
-
-            } else {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de genero sin orden y mostrar los mangas
-
-            }
+            portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+            findByNameGenero(busqueda);
 
         } else {
 
-            if (ordenMenu.getText().equals("Ascendente")) {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de titulo ascendente y mostrar los mangas
-
-            } else if (ordenMenu.getText().equals("Descendente")) {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                //Aqui se debe realizar la busqueda de titulo descendente y mostrar los mangas
-
-            } else {
-
-                portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-                nombreUsuario.setText(RegistroLoginController.actualUser.getEmailUsuario());
-
-                //Aqui se debe realizar la busqueda de titulo sin orden y mostrar los mangas
-
-            }
+            portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+            findByNameObras(busqueda);
 
         }
 
@@ -277,7 +258,9 @@ public class MainController implements Initializable {
         ImageView imagenView = new ImageView(portada);
         imagenView.setOnMouseClicked(mouseEvent -> {
             try {
+                obraSeleccionada = nombreManga;
                 irInfo();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -293,7 +276,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        findAllObras();
         nombreUsuario.setText(RegistroLoginController.actualUser.getEmailUsuario());
 
     }

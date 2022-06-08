@@ -11,6 +11,7 @@ module mangashelf {
     requires jersey.common;
     requires jersey.apache.connector;
 
+
     opens edu.fpdual.proyecto.mangashelf.controller to javafx.fxml;
     //opens edu.fpdual.proyecto.mangashelf.client to jersey.client;
 

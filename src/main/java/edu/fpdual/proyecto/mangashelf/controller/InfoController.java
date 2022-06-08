@@ -1,14 +1,21 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.client.ObraUsuarioClient;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
+import edu.fpdual.proyecto.mangashelf.controller.dto.ObraUsuario;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
+import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class InfoController {
-
+public class InfoController implements Initializable {
 
     @FXML
     private Label comentarioInfo;
@@ -26,9 +33,9 @@ public class InfoController {
     }
 
     @FXML
-    private void anyadirEnCurso(){
-
-        //Aqui se realizaria la consulta que añade el manga a leyendo
+    private void anyadirEnCurso(ObraUsuario obus) throws ExcepcionHTTP {
+        ObraUsuario obraUsuario = new ObraUsuarioClient().addObra(obus);
+        System.out.println(obraUsuario);
 
         comentarioInfo.setText("El manga se ha añadido a En Curso");
 
@@ -77,4 +84,36 @@ public class InfoController {
 
     }
 
+    @FXML
+    private void comprobarObra() throws ExcepcionHTTP {
+        ObraUsuario obus = new ObraUsuarioClient().
+                findByID(RegistroLoginController.actualUser.getEmailUsuario(), MainController.obraSeleccionada);
+
+        if(obus == null){
+            anyadirEnCurso(new ObraUsuario(RegistroLoginController.
+                    actualUser.getEmailUsuario(), MainController.obraSeleccionada, 1, "LEYENDO"));
+        }else{
+            if(obus.getEstado().equals("LEYENDO")) {
+
+            }
+            else if(obus.getEstado().equals("PENDIENTE")) {
+
+            }else{
+
+            }
+        }
+
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            comprobarObra();
+
+        } catch (ExcepcionHTTP e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -41,12 +41,12 @@
                   <Image url="@static.img/iconos/lupa.png" />
                </image>
             </ImageView>
-            <ImageView accessibleRole="TEXT" fitHeight="28.0" fitWidth="25.0" layoutX="395.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView accessibleRole="TEXT" fitHeight="28.0" fitWidth="25.0" layoutX="431.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@static.img/iconos/filtro.png" />
                </image>
             </ImageView>
-            <MenuButton fx:id="filtroMenu" layoutX="422.0" layoutY="4.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="73.0" text="Filtro">
+            <MenuButton fx:id="filtroMenu" layoutX="472.0" layoutY="5.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="73.0" text="Filtro">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#seleccionarTitulo" text="Título" />
                 <MenuItem mnemonicParsing="false" onAction="#seleccionarAutor" text="Autor" />
@@ -54,15 +54,6 @@
               </items>
                <font>
                   <Font name="Eras Demi ITC" size="11.0" />
-               </font>
-            </MenuButton>
-            <MenuButton fx:id="ordenMenu" layoutX="501.0" layoutY="4.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="94.0" text="Orden">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#seleccionarAscendente" text="Ascendente" />
-                  <MenuItem mnemonicParsing="false" onAction="#seleccionarDescendente" text="Descendente" />
-               </items>
-               <font>
-                  <Font name="Eras Demi ITC" size="10.0" />
                </font>
             </MenuButton>
          </children>

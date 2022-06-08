@@ -13,7 +13,7 @@ public class Obra {
     private String capitulosTotales;
 
     public Obra(ResultSet result) throws SQLException {
-        setTitulo(result.getString("Id"));
+        setId(result.getString("Id"));
         setTitulo(result.getString("Titulo"));
         setAnyoPublicacion(result.getInt("AnyoPublicacion"));
         setAnyoTermino(result.getString("AnyoTermino"));
