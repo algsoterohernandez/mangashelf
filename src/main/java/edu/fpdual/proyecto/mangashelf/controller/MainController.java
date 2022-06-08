@@ -15,7 +15,6 @@ import java.io.IOException;
 
 public class MainController {
 
-    private static Usuarios actualUser;
 
     @FXML
     private TextField buscador;

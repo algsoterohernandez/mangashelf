@@ -2,7 +2,6 @@ package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
 import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
-import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -44,11 +43,17 @@ public class CambioContrasenyaController {
 
             //Aqui se debe realizar la consulta del cambio de contraseña
 
+            try{
+                RegistroLoginController.actualUser.setContrasenyaUsuario(nuevaContrasenya.getText());
+                new UsuariosClient().changePwd(RegistroLoginController.actualUser);
 
+                mensajeCambio.setTextFill(Color.BLACK);
+                mensajeCambio.setText("Contraseña actualizada correctamente");
+            }catch (ExcepcionHTTP e){
+                mensajeCambio.setTextFill(Color.RED);
+                mensajeCambio.setText(e.getMessage());
+            }
 
-
-            mensajeCambio.setTextFill(Color.BLACK);
-            mensajeCambio.setText("Contraseña actualizada correctamente");
 
         } else {
 

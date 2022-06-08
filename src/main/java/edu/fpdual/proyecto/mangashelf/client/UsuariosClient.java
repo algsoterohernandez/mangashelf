@@ -77,4 +77,14 @@ public class UsuariosClient{
         }
     }
 
+    public void changePwd(Usuarios user) throws ExcepcionHTTP{
+
+        Response response = webTarget.request(MediaType.APPLICATION_JSON)
+                .put(Entity.entity(user, MediaType.APPLICATION_JSON));
+        
+        if (response.getStatus() != 200){
+            throw new ExcepcionHTTP("Error al cambiar la contraseña");
+        }
+    }
+
 }

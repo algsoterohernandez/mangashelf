@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class InfoController {
 
-    private static Usuarios actualUser;
 
     @FXML
     private Label comentarioInfo;
