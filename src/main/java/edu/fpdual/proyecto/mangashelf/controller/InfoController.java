@@ -347,9 +347,6 @@ public class InfoController implements Initializable {
             enCursoBoton.setImage(iconoEnCurso);
             Image iconoFinalizados = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/libros.png");
             finalizadosBoton.setImage(iconoFinalizados);
-
-            addObra();
-
             numCapitulosLeidos.setText(String.valueOf(0));
 
         } else {

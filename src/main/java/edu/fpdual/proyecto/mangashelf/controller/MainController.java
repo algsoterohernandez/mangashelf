@@ -113,9 +113,13 @@ public class MainController implements Initializable {
             ObraUsuario[] obras = new ObraUsuarioClient()
                     .findByStatus(RegistroLoginController.actualUser.getEmailUsuario(), status.toString());
 
-            for(ObraUsuario obra : obras){
-                crearPortada(obra.getObra());
+            if(obras != null){
+                for(ObraUsuario obra : obras){
+                    crearPortada(obra.getObra());
+                }
             }
+
+
 
         }catch (ExcepcionHTTP e){
             System.out.println(e);
