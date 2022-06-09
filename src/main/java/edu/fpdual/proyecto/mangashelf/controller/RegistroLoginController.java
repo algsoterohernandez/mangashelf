@@ -3,6 +3,7 @@ package edu.fpdual.proyecto.mangashelf.controller;
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
 import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
+import edu.fpdual.proyecto.mangashelf.email.Sender;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -116,8 +117,9 @@ public class RegistroLoginController {
 
                 if (suscripcion.isSelected()) {
 
-                    //Aquí debe enviarse una newsletter al email del usuario
+                    new Sender().send("info.mangashelf@gmail.com", emailUsuario, "Bienvenido a Mangashelf", "<p><b>¡Bienvenido a MANGASHELF!<b><p> <p>Saludos, se ha suscrito a nuestra Newsletter correctamente. ¡A partir de este momento recibirá las últimas noticias de sus mangas favoritos!<p>");
                     System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
+
                 }
             } catch (ExcepcionHTTP e) {
                 comentarioRegistro.setTextFill(Color.RED);
@@ -188,10 +190,13 @@ public class RegistroLoginController {
 
             String nuevaContrasenya = cadenaAleatoria(8);
 
-            //Aquí se debe mandar un correo al email del usuario con la nueva contraseña
+            new UsuariosClient().changePwd(new Usuarios(emailUsuario, nuevaContrasenya));
+
+            new Sender().send("info.mangashelf@gmail.com", emailUsuario, "Cambio de Contraseña", "<p>Buenos días, su nueva contraseña es:<p> <p><b>"+nuevaContrasenya+"<b><p>");
+            System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
 
             comentarioInicio.setTextFill(Color.BLACK);
-            comentarioInicio.setText("Se ha enviado una nueva contraseña al email "+emailUsuario+" "+nuevaContrasenya);
+            comentarioInicio.setText("Se ha enviado una nueva contraseña al email "+emailUsuario);
         }
     }
 
