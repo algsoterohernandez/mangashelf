@@ -197,7 +197,7 @@ public class InfoController implements Initializable {
 
             comentarioInfo.setText("El manga se ha añadido a Finalizados");
             numCapitulosLeidos.setText(String.valueOf(obus.getCapitulosLeidos()));
-            comentarioInfo.setText("El manga se ha añadido a Leídos");
+            comentarioInfo.setText("El manga se ha añadido a Finalizados");
 
         } else {
 

@@ -32,6 +32,9 @@ public class RegistroLoginController {
     private TextField contrasenyaRegistro;
 
     @FXML
+    private CheckBox suscripcion;
+
+    @FXML
     private Label comentarioRegistro;
 
     @FXML
@@ -43,51 +46,15 @@ public class RegistroLoginController {
     @FXML
     private Label comentarioInicio;
 
-    @FXML
-    private CheckBox suscripcion;
-
-
-    /** La función borrarRegistrar():
-     * Permite borrar los datos introducidos en la ventana de registro (crear cuenta).
-     * */
-    @FXML
-    private void borrarRegistrar(){
-
-        emailRegistro.clear();
-        contrasenyaRegistro.clear();
-
-    }
-
-    /** La función borrarIniciar():
-     * Permite borrar los datos introducidos en la ventana de inicio de sesión (iniciar sesión)
-     * */
-    @FXML
-    private void borrarIniciar(){
-
-        emailInicio.clear();
-        contrasenyaInicio.clear();
-
-    }
-
-    /** La función cambiarInicioSesion():
-     * Cambia a la ventanan de inicio de sesión y elimina los datos introducidos en la ventana
-     * del registro
-     * */
-    @FXML
-    private void cambiarInicioSesion(){
-
-        pestanyas.getSelectionModel().select(1);
-
-        emailRegistro.clear();
-        contrasenyaRegistro.clear();
-        comentarioRegistro.setText("");
-
-    }
-
-    /** La función registrarUsuario():
+    /**
+     * registrarUsuario.
+     *
      * Hace una comprobación para ver si el usuario ya tiene cuenta.
      * Si el usuario no tiene cuenta, lo registrará en la BBDD y abrirá la pantalla principal de la app
-     * Además si ha seleccionado la suscripción a la newsletter, se enviará un email confirmando suscripción
+     * Además si ha seleccionado la suscripción a la newsletter, se enviará un email confirmando suscripción.
+     *
+     * @author ikisaki
+     *
      * */
     @FXML
     private void registrarUsuario() throws IOException {
@@ -108,31 +75,78 @@ public class RegistroLoginController {
         } else {
 
             try {
+
                 Usuarios newUser = new Usuarios(emailUsuario, contrasenyaUsuario);
 
                 actualUser = new UsuariosClient().createUser(newUser);
 
                 comentarioRegistro.setText("");
+
                 Mangashelf.setRoot("Main");
 
                 if (suscripcion.isSelected()) {
 
                     new Sender().send("info.mangashelf@gmail.com", emailUsuario, "Bienvenido a Mangashelf", "<p><b>¡Bienvenido a MANGASHELF!<b><p> <p>Saludos, se ha suscrito a nuestra Newsletter correctamente. ¡A partir de este momento recibirá las últimas noticias de sus mangas favoritos!<p>");
-                    System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
 
                 }
+
             } catch (ExcepcionHTTP e) {
+
                 comentarioRegistro.setTextFill(Color.RED);
                 comentarioRegistro.setText(e.getMessage());
+
             }
+
         }
+
     }
 
-   /** La función iniciarSesionUsuario():
-    * Realiza comprobación de igualdad con los datos de la BBDD.
-    * Si los datos introducidos con coincidentes, abrirá la pantalla principal de la app,
-    * en caso contrario saltará una excepción.
-    * */
+    /**
+     * borrarRegistrar.
+     *
+     * Permite borrar los datos introducidos en la ventana de registro (crear cuenta).
+     *
+     *@author ikisaki
+     *
+     * */
+    @FXML
+    private void borrarRegistrar(){
+
+        emailRegistro.clear();
+        contrasenyaRegistro.clear();
+
+    }
+
+    /**
+     * cambiarInicioSesion.
+     *
+     * Cambia a la ventanan de inicio de sesión y elimina los datos introducidos en la ventana
+     * del registro.
+     *
+     * @author ikisaki
+     *
+     * */
+    @FXML
+    private void cambiarInicioSesion(){
+
+        pestanyas.getSelectionModel().select(1);
+
+        emailRegistro.clear();
+        contrasenyaRegistro.clear();
+        comentarioRegistro.setText("");
+
+    }
+
+    /**
+     * iniciarSesionUsuario.
+     *
+     * Realiza comprobación de igualdad con los datos de la BBDD.
+     * Si los datos introducidos con coincidentes, abrirá la pantalla principal de la app,
+     * en caso contrario saltará una excepción.
+     *
+     * @author ikisaki
+     *
+     * */
     @FXML
     private void iniciarSesionUsuario() throws IOException {
 
@@ -151,30 +165,53 @@ public class RegistroLoginController {
 
         } else {
 
-            //Aquí debe realizarse la/s consulta/s a la BBDD con sus casos
-
             try {
 
                 Usuarios user = new Usuarios(emailUsuario, contrasenyaUsuario);
                 actualUser = new UsuariosClient().loginUser(user);
 
                 comentarioInicio.setText("");
+
                 Mangashelf.setRoot("Main");
 
             } catch (ExcepcionHTTP e) {
+
                 comentarioInicio.setTextFill(Color.RED);
                 comentarioInicio.setText(e.getMessage());
+
             }
+
         }
 
     }
 
-   /** La función generarContrasenya():
+    /**
+     * borrarIniciar.
+     *
+     * Permite borrar los datos introducidos en la ventana de inicio de sesión (iniciar sesión).
+     *
+     * @author ikisaki
+     *
+     * */
+    @FXML
+    private void borrarIniciar(){
+
+        emailInicio.clear();
+        contrasenyaInicio.clear();
+
+    }
+
+   /**
+    * generarContrasenya.
+    *
     * Si el usuario ha olvidado su contraseña, se generará una nueva contraseña aleatoria.
     * Para ello, al usuario se le pedirá que indique su email y se le enviará.
     * La contraseña aleatoria sustituirá a la contraseña inicial en la BBDD.
     * El usuario podrá acceder con esa contraseña y desde su perfil modificarla para poner una nueva
     * contraseña.
+    *
+    * @author ikisaki
+    *
     * */
     @FXML
     private void generarContrasenya() throws ExcepcionHTTP {
@@ -193,17 +230,22 @@ public class RegistroLoginController {
             new UsuariosClient().changePwd(new Usuarios(emailUsuario, nuevaContrasenya));
 
             new Sender().send("info.mangashelf@gmail.com", emailUsuario, "Cambio de Contraseña", "<p>Buenos días, su nueva contraseña es:<p> <p><b>"+nuevaContrasenya+"<b><p>");
-            System.out.println("Ahora se le habría enviado un email al usuario (Newsletter)");
 
             comentarioInicio.setTextFill(Color.BLACK);
             comentarioInicio.setText("Se ha enviado una nueva contraseña al email "+emailUsuario);
+
         }
+
     }
 
-
-   /** La función cadenaAleatoria():
+   /**
+    * cadenaAleatoria.
+    *
     * Permite generar una cadena de caracteres aleatoria como medida de seguridad para el usuario
-    * y la designará como una nueva contraseña
+    * y la designará como una nueva contraseña.
+    *
+    * @author ikisaki
+    *
     * */
     public static String cadenaAleatoria(int longitud) {
 
@@ -212,17 +254,22 @@ public class RegistroLoginController {
         String nuevaContrasenya = "";
 
         for (int x = 0; x < longitud; x++) {
+
             int indiceAleatorio = numeroAleatorioEnRango(0, caracteres.length() - 1);
             char caracterAleatorio = caracteres.charAt(indiceAleatorio);
+
             nuevaContrasenya += caracterAleatorio;
+
         }
 
         return nuevaContrasenya;
+
     }
 
     public static int numeroAleatorioEnRango(int minimo, int maximo) {
 
         return ThreadLocalRandom.current().nextInt(minimo, maximo + 1);
+
     }
 
 }
