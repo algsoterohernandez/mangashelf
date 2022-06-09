@@ -35,6 +35,12 @@ public class CambioContrasenyaController {
         Mangashelf.setRoot("Main");
     }
 
+    @FXML
+    private void cerrarSesion() throws IOException{
+
+        Mangashelf.setRoot("RegistroLogin");
+    }
+
     /**
      * enviarCambioContrasenya.
      *

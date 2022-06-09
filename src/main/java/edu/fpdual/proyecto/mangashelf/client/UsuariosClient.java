@@ -46,7 +46,7 @@ public class UsuariosClient{
     public Usuarios loginUser(Usuarios user) throws ExcepcionHTTP {
 
         Response response = webTarget.request()
-                .build("PATCH", Entity.entity(user,MediaType.APPLICATION_JSON))
+                .build("PATCH", Entity.entity(user, MediaType.APPLICATION_JSON))
                 .invoke();
 
         if (response.getStatus() == 200) {
@@ -56,10 +56,10 @@ public class UsuariosClient{
         } else if (response.getStatus() == 404) {
 
             throw new ExcepcionHTTP("EMAIL o CONTRASEÑA erróneos");
+        } else{
+            throw new ExcepcionHTTP("Error al conectar");
 
-        } else
-
-            throw new ExcepcionHTTP("Bad request");
+        }
 
     }
 
@@ -85,13 +85,10 @@ public class UsuariosClient{
         } else if (response.getStatus() == 500) {
 
             throw new ExcepcionHTTP("El usuario ya existe");
-
-        } else {
-
-            throw new ExcepcionHTTP("Bad request");
+        }else{
+            throw new ExcepcionHTTP("Error al conectar");
 
         }
-
     }
 
     /**
