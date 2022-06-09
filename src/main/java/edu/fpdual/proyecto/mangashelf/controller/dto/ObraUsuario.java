@@ -4,7 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
-
+/**
+ * ObraUsuario.
+ *
+ * DTO de ObraUsuario.
+ *
+ * @author ikisaki
+ *
+ */
 public class ObraUsuario {
 
     private String usuario;
@@ -13,13 +20,16 @@ public class ObraUsuario {
     private String estado;
 
     public ObraUsuario(ResultSet result) throws SQLException {
+
         setUsuario(result.getString("Usuario"));
         setObra(result.getString("Obra"));
         setCapitulosLeidos(result.getInt("CapitulosLeidos"));
         setEstado(result.getString("Estado"));
+
     }
 
     public ObraUsuario(String usuario, String obra, int capitulosLeidos, String estado) {
+
         this.usuario = usuario;
         this.obra = obra;
         this.capitulosLeidos = capitulosLeidos;
@@ -28,6 +38,7 @@ public class ObraUsuario {
     }
 
     public ObraUsuario() {
+
     }
 
     public String getUsuario() {
@@ -64,14 +75,20 @@ public class ObraUsuario {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
+
         if (o == null || getClass() != o.getClass()) return false;
+
         ObraUsuario that = (ObraUsuario) o;
+
         return capitulosLeidos == that.capitulosLeidos && usuario.equals(that.usuario) && obra.equals(that.obra) && estado.equals(that.estado);
+
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(usuario, obra, capitulosLeidos, estado);
     }
+
 }

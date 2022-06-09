@@ -4,6 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
+/**
+ * Obra.
+ *
+ * DTO de Obra.
+ *
+ * @author ikisaki
+ *
+ */
 public class Obra {
 
     private String id;
@@ -13,22 +21,26 @@ public class Obra {
     private String capitulosTotales;
 
     public Obra(ResultSet result) throws SQLException {
+
         setId(result.getString("Id"));
         setTitulo(result.getString("Titulo"));
         setAnyoPublicacion(result.getInt("AnyoPublicacion"));
         setAnyoTermino(result.getString("AnyoTermino"));
         setCapitulosTotales(result.getString("CapitulosTotales"));
+
     }
 
     public Obra(String titulo, int anyoPublicacion, String anyoTermino, String capitulosTotales) {
-        this.id = id;
+
         this.titulo = titulo;
         this.anyoPublicacion = anyoPublicacion;
         this.anyoTermino = anyoTermino;
         this.capitulosTotales = capitulosTotales;
+
     }
 
     public Obra() {
+
     }
 
     public String getId() {
@@ -73,14 +85,20 @@ public class Obra {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
+
         if (o == null || getClass() != o.getClass()) return false;
+
         Obra obra = (Obra) o;
+
         return anyoPublicacion == obra.anyoPublicacion && titulo.equals(obra.titulo) && anyoTermino.equals(obra.anyoTermino) && capitulosTotales.equals(obra.capitulosTotales);
+
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(titulo, anyoPublicacion, anyoTermino, capitulosTotales);
     }
+
 }
