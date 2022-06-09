@@ -1,6 +1,7 @@
 package edu.fpdual.proyecto.mangashelf.client;
 
 import edu.fpdual.proyecto.mangashelf.controller.dto.Genero;
+import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
@@ -40,6 +41,21 @@ public class GeneroClient {
         if (response.getStatus() == 200) {
 
             return response.readEntity(Genero[].class);
+        } else {
+            throw new ExcepcionHTTP("Error");
+
+        }
+    }
+
+    public Genero findByID (String id) throws ExcepcionHTTP {
+        Response response = webTarget.path("/getid/" + id)
+                .request(MediaType.APPLICATION_JSON)
+                .get();
+
+        if (response.getStatus() == 200) {
+            return response.readEntity(Genero.class);
+        }else if (response.getStatus() == 404){
+            throw new ExcepcionHTTP("Not found");
         } else {
             throw new ExcepcionHTTP("Error");
 

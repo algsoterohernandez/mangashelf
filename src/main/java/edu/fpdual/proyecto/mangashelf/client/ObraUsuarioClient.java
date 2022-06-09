@@ -52,7 +52,7 @@ public class ObraUsuarioClient {
     }
 
     public ObraUsuario addObra (ObraUsuario obus) throws ExcepcionHTTP{
-        Response response = webTarget.request(MediaType.APPLICATION_JSON_PATCH_JSON)
+        Response response = webTarget.request(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .post(Entity.entity(obus, MediaType.APPLICATION_JSON));
 
@@ -64,7 +64,7 @@ public class ObraUsuarioClient {
     }
     public ObraUsuario updateStatus (ObraUsuario obus) throws ExcepcionHTTP{
         Response response = webTarget.path("/update")
-                .request(MediaType.APPLICATION_JSON_PATCH_JSON)
+                .request(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .put(Entity.entity(obus, MediaType.APPLICATION_JSON));
 
@@ -76,7 +76,7 @@ public class ObraUsuarioClient {
     }
     public ObraUsuario sumChap (ObraUsuario obus) throws ExcepcionHTTP{
         Response response = webTarget.path("/sum")
-                .request(MediaType.APPLICATION_JSON_PATCH_JSON)
+                .request(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .put(Entity.entity(obus, MediaType.APPLICATION_JSON));
 
@@ -88,7 +88,7 @@ public class ObraUsuarioClient {
     }
     public ObraUsuario resChap (ObraUsuario obus) throws ExcepcionHTTP{
         Response response = webTarget.path("/res")
-                .request(MediaType.APPLICATION_JSON_PATCH_JSON)
+                .request(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .put(Entity.entity(obus, MediaType.APPLICATION_JSON));
 
