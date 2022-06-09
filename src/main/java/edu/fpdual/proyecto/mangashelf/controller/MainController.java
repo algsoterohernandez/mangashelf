@@ -64,8 +64,6 @@ public class MainController implements Initializable {
     @FXML
     private Pane pendienteBoton;
 
-    @FXML
-    private TilePane portadasMangas;
 
     /**
      * volverIndice.
@@ -297,22 +295,6 @@ public class MainController implements Initializable {
 
     }
 
-    @FXML
-    public void findAllObras(){
-        try{
-            Obra[] obras = new ObraClient().findAll();
-
-            for(Obra obra : obras){
-                crearPortada(obra.getId());
-            }
-
-        } catch (ExcepcionHTTP e) {
-
-            System.out.println(e);
-
-        }
-
-    }
 
     /**
      * findByStatus.
