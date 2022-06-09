@@ -2,7 +2,6 @@ package edu.fpdual.proyecto.mangashelf.client;
 
 import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Genero;
-import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;

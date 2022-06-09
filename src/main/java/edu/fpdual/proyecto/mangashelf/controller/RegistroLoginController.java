@@ -5,13 +5,11 @@ import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;

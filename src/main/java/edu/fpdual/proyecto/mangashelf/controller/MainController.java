@@ -1,12 +1,15 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.Status;
 import edu.fpdual.proyecto.mangashelf.client.AutorClient;
 import edu.fpdual.proyecto.mangashelf.client.GeneroClient;
 import edu.fpdual.proyecto.mangashelf.client.ObraClient;
+import edu.fpdual.proyecto.mangashelf.client.ObraUsuarioClient;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Genero;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
+import edu.fpdual.proyecto.mangashelf.controller.dto.ObraUsuario;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -105,6 +108,21 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void findByStatus(Status status){
+        try{
+            ObraUsuario[] obras = new ObraUsuarioClient()
+                    .findByStatus(RegistroLoginController.actualUser.getEmailUsuario(), status.toString());
+
+            for(ObraUsuario obra : obras){
+                crearPortada(obra.getObra());
+            }
+
+        }catch (ExcepcionHTTP e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     public void findByNameObras(String nombre){
         try{
             Obra[] obras = new ObraClient().findByName(nombre);
@@ -153,8 +171,10 @@ public class MainController implements Initializable {
         leidosBoton.setBackground(Background.fill(Color.LIGHTGRAY));
         enCursoBoton.setBackground(Background.fill(Color.WHITE));
         pendienteBoton.setBackground(Background.fill(Color.WHITE));
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
         //Aqui debe realizarse la consulta de mangas leidos por el usuario y mostrarlos
+        findByStatus(Status.LEIDO);
 
     }
 
@@ -165,8 +185,10 @@ public class MainController implements Initializable {
         leidosBoton.setBackground(Background.fill(Color.WHITE));
         enCursoBoton.setBackground(Background.fill(Color.LIGHTGRAY));
         pendienteBoton.setBackground(Background.fill(Color.WHITE));
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
         //Aqui debe realizarse la consulta de mangas en curso por el usuario y mostrarlos
+        findByStatus(Status.LEYENDO);
 
     }
 
@@ -177,8 +199,10 @@ public class MainController implements Initializable {
         leidosBoton.setBackground(Background.fill(Color.WHITE));
         enCursoBoton.setBackground(Background.fill(Color.WHITE));
         pendienteBoton.setBackground(Background.fill(Color.LIGHTGRAY));
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
         //Aqui debe realizarse la consulta de mangas pendientes por el usuario y mostrarlos
+        findByStatus(Status.PENDIENTE);
 
     }
 

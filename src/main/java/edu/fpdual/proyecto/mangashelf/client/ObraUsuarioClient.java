@@ -1,6 +1,5 @@
 package edu.fpdual.proyecto.mangashelf.client;
 
-import edu.fpdual.proyecto.mangashelf.controller.dto.Autor;
 import edu.fpdual.proyecto.mangashelf.controller.dto.ObraUsuario;
 import edu.fpdual.proyecto.mangashelf.exceptions.ExcepcionHTTP;
 import jakarta.ws.rs.client.Client;
@@ -50,6 +49,24 @@ public class ObraUsuarioClient {
             throw new ExcepcionHTTP("Error");
         }
     }
+
+    public ObraUsuario[] findByStatus(String email, String status) throws ExcepcionHTTP {
+        Response response = webTarget.path("/getstatus/" + email + "/" + status)
+                .request(MediaType.APPLICATION_JSON)
+                .get();
+
+        if (response.getStatus() == 200) {
+
+            return response.readEntity(ObraUsuario[].class);
+        } else if (response.getStatus() == 404){
+
+            return null;
+
+        }else{
+            throw new ExcepcionHTTP("Error");
+        }
+    }
+
 
     public ObraUsuario addObra (ObraUsuario obus) throws ExcepcionHTTP{
         Response response = webTarget.request(MediaType.APPLICATION_JSON)
