@@ -31,6 +31,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * MainController.
+ *
+ * Contiene todas las funciones a realizar en la ventana principal Main.
+ *
+ * @author ikisaki
+ *
+ */
 public class MainController implements Initializable {
 
     static String obraSeleccionada;
@@ -56,33 +64,230 @@ public class MainController implements Initializable {
     @FXML
     private Pane pendienteBoton;
 
+    @FXML
+    private TilePane portadasMangas;
+
+    /**
+     * volverIndice.
+     *
+     * Reinicia la ventana Main.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    private void volverIndice() {
+
+        leidosBoton.setBackground(Background.fill(Color.WHITE));
+        enCursoBoton.setBackground(Background.fill(Color.WHITE));
+        pendienteBoton.setBackground(Background.fill(Color.WHITE));
+        filtroMenu.setText("Filtro");
+        buscador.setText("");
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+
+        findAllObras();
 
 
+    }
+
+    /**
+     * irInfo.
+     *
+     * Mueve al usuario a la página de Información.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
     private void irInfo() throws IOException {
+
         Mangashelf.setRoot("Info");
 
     }
-    @FXML
-    public void findByNameGenero(String nombre){
-        try{
-            Genero[] generos = new GeneroClient().findByName(nombre);
 
-            for(Genero genero : generos){
-                crearPortada(genero.getTitulo());
+    /**
+     * seleccionarCambiarContrasenya.
+     *
+     * Mueve al usuario a la página de Cambiar Contraseña.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    private void seleccionarCambiarContrasenya() throws IOException {
+
+        Mangashelf.setRoot("CambioContrasenya");
+
+    }
+
+    /**
+     * findAllObras.
+     *
+     * Muestra todos los mangas.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    public void findAllObras() {
+
+        try {
+
+            Obra[] obras = new ObraClient().findAll();
+
+            for (Obra obra : obras) {
+
+                crearPortada(obra.getId());
+
             }
 
-        }catch (ExcepcionHTTP e){
+        } catch (ExcepcionHTTP e) {
+
             System.out.println(e);
+
         }
 
     }
+
+    /**
+     * buscar.
+     *
+     * Realiza la búsqueda de mangas.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
-    public void findByNameAutor(String nombre){
-        try{
+    private void buscar(KeyEvent event) {
+
+        if (event.getCode() == KeyCode.ENTER) {
+
+            realizarBusqueda();
+
+        }
+
+    }
+
+    /**
+     * seleccionarTitulo.
+     *
+     * Selecciona la opción Título del filtro.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    private void seleccionarTitulo() {
+
+        filtroMenu.setText("Título");
+
+    }
+
+    /**
+     * seleccionarAutor.
+     *
+     * Selecciona la opción Autor del filtro.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    private void seleccionarAutor() {
+
+        filtroMenu.setText("Autor");
+
+    }
+
+    /**
+     * seleccionarGenero.
+     *
+     * Selecciona la opción Género del filtro.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    private void seleccionarGenero() {
+
+        filtroMenu.setText("Género");
+
+    }
+
+    /**
+     * findByNameObras.
+     *
+     * Muestra los mangas en base al nombre buscado.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    public void findByNameObras(String nombre) {
+
+        try {
+
+            Obra[] obras = new ObraClient().findByName(nombre);
+
+            for (Obra obra : obras) {
+
+                crearPortada(obra.getId());
+
+            }
+
+        } catch (ExcepcionHTTP e) {
+
+            System.out.println(e);
+
+        }
+
+    }
+
+    /**
+     * findByNameGenero.
+     *
+     * Muestra los mangas en base al género buscado.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    public void findByNameGenero(String nombre) {
+
+        try {
+
+            Genero[] generos = new GeneroClient().findByName(nombre);
+
+            for (Genero genero : generos) {
+
+                crearPortada(genero.getTitulo());
+
+            }
+
+        } catch (ExcepcionHTTP e) {
+
+            System.out.println(e);
+
+        }
+
+    }
+
+    /**
+     * findByNameAutor.
+     *
+     * Muestra los mangas en base al autor buscado.
+     *
+     * @author ikisaki
+     *
+     */
+    @FXML
+    public void findByNameAutor(String nombre) {
+
+        try {
+
             Autor[] autores = new AutorClient().findByName(nombre);
 
-            for(Autor autor : autores){
+            for (Autor autor : autores) {
+
                 crearPortada(autor.getTitulo());
             }
 
@@ -101,12 +306,22 @@ public class MainController implements Initializable {
                 crearPortada(obra.getId());
             }
 
-        }catch (ExcepcionHTTP e){
+        } catch (ExcepcionHTTP e) {
+
             System.out.println(e);
+
         }
 
     }
 
+    /**
+     * findByStatus.
+     *
+     * Muestra los mangas en base al estado del manga en la tabla del usuario.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
     public void findByStatus(Status status){
         try{
@@ -121,82 +336,22 @@ public class MainController implements Initializable {
 
 
 
-        }catch (ExcepcionHTTP e){
+        } catch (ExcepcionHTTP e) {
+
             System.out.println(e);
-        }
-    }
-
-    @FXML
-    public void findByNameObras(String nombre){
-        try{
-            Obra[] obras = new ObraClient().findByName(nombre);
-
-            for(Obra obra : obras){
-                crearPortada(obra.getId());
-            }
-
-        }catch (ExcepcionHTTP e){
-            System.out.println(e);
-        }
-
-    }
-
-    //Cuando se haga click en Mangashelf, o en su logo, se reiniciará la página
-    @FXML
-    private void volverIndice(){
-
-        leidosBoton.setBackground(Background.fill(Color.WHITE));
-        enCursoBoton.setBackground(Background.fill(Color.WHITE));
-        pendienteBoton.setBackground(Background.fill(Color.WHITE));
-        filtroMenu.setText("Filtro");
-        buscador.setText("");
-        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-        findAllObras();
-
-
-    }
-
-    //Cuando se pulse la tecla ENTER en el buscador realizará la búsqueda de los mangas con lo escrito
-    @FXML
-    private void buscar(KeyEvent event) throws IOException {
-
-        if (event.getCode() == KeyCode.ENTER) {
-
-            realizarBusqueda();
 
         }
 
     }
 
-    //Cuando el botón Leídos es pulsado, cambia de color y se muestran los mangas leídos por el usuario
-    @FXML
-    private void seleccionarLeidos(){
-
-        leidosBoton.setBackground(Background.fill(Color.LIGHTGRAY));
-        enCursoBoton.setBackground(Background.fill(Color.WHITE));
-        pendienteBoton.setBackground(Background.fill(Color.WHITE));
-        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-        //Aqui debe realizarse la consulta de mangas leidos por el usuario y mostrarlos
-        findByStatus(Status.LEIDO);
-
-    }
-
-    //Cuando el botón En Curso es pulsado, cambia de color y se muestran los mangas que se encuentran en curso por el usuario
-    @FXML
-    private void seleccionarEnCurso(){
-
-        leidosBoton.setBackground(Background.fill(Color.WHITE));
-        enCursoBoton.setBackground(Background.fill(Color.LIGHTGRAY));
-        pendienteBoton.setBackground(Background.fill(Color.WHITE));
-        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
-
-        //Aqui debe realizarse la consulta de mangas en curso por el usuario y mostrarlos
-        findByStatus(Status.LEYENDO);
-
-    }
-
-    //Cuando el botón En Curso es pulsado, cambia de color y se muestran los mangas que se encuentran pendientes por el usuario
+    /**
+     * seleccionarPendiente.
+     *
+     * Muestra los mangas que se encuentran pendientes por el usuario.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
     private void seleccionarPendiente(){
 
@@ -205,46 +360,60 @@ public class MainController implements Initializable {
         pendienteBoton.setBackground(Background.fill(Color.LIGHTGRAY));
         portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
 
-        //Aqui debe realizarse la consulta de mangas pendientes por el usuario y mostrarlos
         findByStatus(Status.PENDIENTE);
 
     }
 
-    //Al hacer click sobre la imagen de usuario, se cambia a la ventana de cambio de contraseña (o borrado de cuenta)
+    /**
+     * seleccionarEnCurso.
+     *
+     * Muestra los mangas que se encuentran en curso por el usuario.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
-    private void seleccionarCambiarContrasenya() throws IOException {
+    private void seleccionarEnCurso() {
 
-        Mangashelf.setRoot("CambioContrasenya");
+        leidosBoton.setBackground(Background.fill(Color.WHITE));
+        enCursoBoton.setBackground(Background.fill(Color.LIGHTGRAY));
+        pendienteBoton.setBackground(Background.fill(Color.WHITE));
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+
+        findByStatus(Status.LEYENDO);
 
     }
 
-    //Se selecciona la opción Título en el filtro
+    /**
+     * seleccionarLeidos.
+     *
+     * Muestra los mangas ya leídos por el usuario.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
-    private void seleccionarTitulo(){
+    private void seleccionarLeidos() {
 
-        filtroMenu.setText("Título");
+        leidosBoton.setBackground(Background.fill(Color.LIGHTGRAY));
+        enCursoBoton.setBackground(Background.fill(Color.WHITE));
+        pendienteBoton.setBackground(Background.fill(Color.WHITE));
+        portadasMangas.getChildren().removeAll(portadasMangas.getChildren());
+
+        findByStatus(Status.LEIDO);
 
     }
 
-    //Se selecciona la opción Autor en el filtro
+    /**
+     * realizarBusqueda.
+     *
+     * Realiza la búsqueda de mangas en base a lo buscado y el filtro.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
-    private void seleccionarAutor(){
-
-        filtroMenu.setText("Autor");
-
-    }
-
-    //Se selecciona la opción Género en el filtro
-    @FXML
-    private void seleccionarGenero(){
-
-        filtroMenu.setText("Género");
-
-    }
-
-    //Realiza una búsqueda predeterminada por título o en base a la selección del filtro y orden
-    @FXML
-    private void realizarBusqueda(){
+    private void realizarBusqueda() {
 
         String busqueda = buscador.getText();
 
@@ -278,20 +447,34 @@ public class MainController implements Initializable {
 
     }
 
+    /**
+     * crearPortada.
+     *
+     * Muestra los mangas por pantalla.
+     *
+     * @author ikisaki
+     *
+     */
     @FXML
-    private void crearPortada(String nombreManga){
+    private void crearPortada(String nombreManga) {
 
         Image portada = new Image("edu/fpdual/proyecto/mangashelf/static.img/portadas/"+nombreManga+".png");
         ImageView imagenView = new ImageView(portada);
+
         imagenView.setOnMouseClicked(mouseEvent -> {
+
             try {
+
                 obraSeleccionada = nombreManga;
                 irInfo();
 
             } catch (IOException e) {
+
                 e.printStackTrace();
+
             }
         });
+
         imagenView.setFitHeight(159);
         imagenView.setFitWidth(98);
         imagenView.setAccessibleRole(AccessibleRole.BUTTON);
@@ -301,8 +484,17 @@ public class MainController implements Initializable {
 
     }
 
+    /**
+     * initialize.
+     *
+     * Ejecuta las funciones que se encuentren en su interior al acceder a la ventana.
+     *
+     * @author ikisaki
+     *
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         findAllObras();
         nombreUsuario.setText(RegistroLoginController.actualUser.getEmailUsuario());
 

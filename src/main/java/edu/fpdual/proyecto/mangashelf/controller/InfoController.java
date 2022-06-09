@@ -20,9 +20,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * InfoController
+ * InfoController.
  *
- * Contiene todas las funciones a realizar en la ventana de información
+ * Contiene todas las funciones a realizar en la ventana de Información.
  *
  * @author ikisaki
  *
