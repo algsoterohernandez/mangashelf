@@ -145,30 +145,33 @@
                               <Font name="Eras Demi ITC" size="18.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="134.0" layoutY="23.0" prefHeight="74.0" prefWidth="91.0">
+                        <Pane accessibleRole="BUTTON" layoutX="134.0" layoutY="23.0" onMouseClicked="#anyadirEnCurso" prefHeight="74.0" prefWidth="91.0">
                            <children>
                               <Label layoutX="15.0" layoutY="53.0" text="En curso">
                                  <font>
                                     <Font name="Eras Medium ITC" size="16.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="enCursoBotonInfo" accessibleRole="BUTTON" fitHeight="46.0" fitWidth="49.0" layoutX="23.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="enCursoBotonInfo" fitHeight="46.0" fitWidth="49.0" layoutX="23.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@static.img/iconos/leyendo.png" />
                                  </image>
                                  <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                           </children></Pane>
-                        <Pane layoutX="8.0" layoutY="25.0" prefHeight="74.0" prefWidth="91.0">
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Pane>
+                        <Pane accessibleRole="BUTTON" layoutX="8.0" layoutY="25.0" onMouseClicked="#anyadirPendiente" prefHeight="74.0" prefWidth="91.0">
                            <children>
-                              <ImageView fx:id="pendientesBotonInfo" accessibleRole="BUTTON" fitHeight="46.0" fitWidth="46.0" layoutX="22.0" layoutY="5.0" onMouseClicked="#anyadirPendiente" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="pendientesBotonInfo" fitHeight="46.0" fitWidth="46.0" layoutX="22.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@static.img/iconos/amor.png" />
                                  </image>
                                  <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
                               <Label layoutX="6.0" layoutY="51.0" text="Pendientes">
@@ -177,23 +180,29 @@
                                  </font>
                               </Label>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Pane>
-                        <Pane layoutX="246.0" layoutY="23.0" prefHeight="74.0" prefWidth="91.0">
+                        <Pane accessibleRole="BUTTON" layoutX="246.0" layoutY="23.0" onMouseClicked="#anyadirLeido" prefHeight="74.0" prefWidth="91.0">
                            <children>
                               <Label layoutX="7.0" layoutY="53.0" text="Finalizados">
                                  <font>
                                     <Font name="Eras Medium ITC" size="16.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="finalizadosBotonInfo" accessibleRole="BUTTON" fitHeight="46.0" fitWidth="46.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#anyadirLeido" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="finalizadosBotonInfo" fitHeight="46.0" fitWidth="46.0" layoutX="23.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@static.img/iconos/libros.png" />
                                  </image>
                                  <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
-                           </children></Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Pane>
                      </children>
                   </Pane>
                </children>

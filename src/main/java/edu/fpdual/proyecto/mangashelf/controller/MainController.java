@@ -44,7 +44,6 @@ public class MainController implements Initializable {
     @FXML
     private MenuButton filtroMenu;
 
-
     @FXML
     private Pane leidosBoton;
 

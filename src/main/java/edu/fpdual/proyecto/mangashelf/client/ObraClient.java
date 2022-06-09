@@ -56,7 +56,7 @@ public class ObraClient {
 
             return response.readEntity(Obra[].class);
         } else {
-            throw new ExcepcionHTTP("Error");
+            throw new ExcepcionHTTP(String.valueOf(response.getStatus()));
 
         }
     }
