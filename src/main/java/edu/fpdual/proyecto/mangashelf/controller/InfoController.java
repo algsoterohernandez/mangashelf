@@ -1,6 +1,7 @@
 package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
+import edu.fpdual.proyecto.mangashelf.Status;
 import edu.fpdual.proyecto.mangashelf.client.ObraUsuarioClient;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
 import edu.fpdual.proyecto.mangashelf.controller.dto.ObraUsuario;
@@ -10,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +25,15 @@ public class InfoController implements Initializable {
 
     @FXML
     private Label numCapitulosLeidos;
+
+    @FXML
+    private ImageView pendientesBotonInfo;
+
+    @FXML
+    private ImageView enCursoBotonInfo;
+
+    @FXML
+    private ImageView finalizadosBotonInfo;
 
     @FXML
     private void anyadirLeido(){
@@ -90,15 +102,53 @@ public class InfoController implements Initializable {
                 findByID(RegistroLoginController.actualUser.getEmailUsuario(), MainController.obraSeleccionada);
 
         if(obus == null){
-            anyadirEnCurso(new ObraUsuario(RegistroLoginController.
-                    actualUser.getEmailUsuario(), MainController.obraSeleccionada, 1, "LEYENDO"));
-        }else{
-            if(obus.getEstado().equals("LEYENDO")) {
 
-            }
-            else if(obus.getEstado().equals("PENDIENTE")) {
+            pendientesBotonInfo.setDisable(false);
+            enCursoBotonInfo.setDisable(false);
+            finalizadosBotonInfo.setDisable(false);
+            Image iconoPendiente = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/amor.png");
+            pendientesBotonInfo.setImage(iconoPendiente);
+            Image iconoEnCurso = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/leyendo.png");
+            enCursoBotonInfo.setImage(iconoEnCurso);
+            Image iconoFinalizados = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/libros.png");
+            finalizadosBotonInfo.setImage(iconoFinalizados);
+
+        }else{
+            if(obus.getEstado().equals(Status.LEYENDO.toString())) {
+
+                pendientesBotonInfo.setDisable(false);
+                enCursoBotonInfo.setDisable(true);
+                finalizadosBotonInfo.setDisable(false);
+                Image iconoPendiente = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/amor.png");
+                pendientesBotonInfo.setImage(iconoPendiente);
+                Image iconoEnCurso = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/leyendoverde.png");
+                enCursoBotonInfo.setImage(iconoEnCurso);
+                Image iconoFinalizados = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/libros.png");
+                finalizadosBotonInfo.setImage(iconoFinalizados);
+
+            } else if (obus.getEstado().equals(Status.PENDIENTE.toString())) {
+
+                pendientesBotonInfo.setDisable(true);
+                enCursoBotonInfo.setDisable(false);
+                finalizadosBotonInfo.setDisable(false);
+                Image iconoPendiente = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/amorverde.png");
+                pendientesBotonInfo.setImage(iconoPendiente);
+                Image iconoEnCurso = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/leyendo.png");
+                enCursoBotonInfo.setImage(iconoEnCurso);
+                Image iconoFinalizados = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/libros.png");
+                finalizadosBotonInfo.setImage(iconoFinalizados);
 
             }else{
+
+                pendientesBotonInfo.setDisable(false);
+                enCursoBotonInfo.setDisable(false);
+                finalizadosBotonInfo.setDisable(true);
+                Image iconoPendiente = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/amor.png");
+                pendientesBotonInfo.setImage(iconoPendiente);
+                Image iconoEnCurso = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/leyendo.png");
+                enCursoBotonInfo.setImage(iconoEnCurso);
+                Image iconoFinalizados = new Image("edu/fpdual/proyecto/mangashelf/static.img/iconos/librosverde.png");
+                finalizadosBotonInfo.setImage(iconoFinalizados);
 
             }
         }
