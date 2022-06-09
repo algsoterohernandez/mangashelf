@@ -60,4 +60,19 @@ public class ObraClient {
 
         }
     }
+
+    public Obra findByID (String id) throws ExcepcionHTTP {
+        Response response = webTarget.path("/getid/" + id)
+                .request(MediaType.APPLICATION_JSON)
+                .get();
+
+        if (response.getStatus() == 200) {
+            return response.readEntity(Obra.class);
+        }else if (response.getStatus() == 404){
+            throw new ExcepcionHTTP("Not found");
+        } else {
+            throw new ExcepcionHTTP("Error");
+
+        }
+    }
 }

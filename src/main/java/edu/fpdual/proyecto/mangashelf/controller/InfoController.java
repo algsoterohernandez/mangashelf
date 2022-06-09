@@ -2,7 +2,9 @@ package edu.fpdual.proyecto.mangashelf.controller;
 
 import edu.fpdual.proyecto.mangashelf.Mangashelf;
 import edu.fpdual.proyecto.mangashelf.Status;
+import edu.fpdual.proyecto.mangashelf.client.ObraClient;
 import edu.fpdual.proyecto.mangashelf.client.ObraUsuarioClient;
+import edu.fpdual.proyecto.mangashelf.client.UsuariosClient;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Obra;
 import edu.fpdual.proyecto.mangashelf.controller.dto.ObraUsuario;
 import edu.fpdual.proyecto.mangashelf.controller.dto.Usuarios;
@@ -36,38 +38,55 @@ public class InfoController implements Initializable {
     private ImageView finalizadosBotonInfo;
 
     @FXML
-    private void anyadirLeido(){
+    private void anyadirLeido(ObraUsuario obus) throws ExcepcionHTTP {
 
         //Aqui se realizaria la consulta que añade el manga a leidos
+        Obra obra = new ObraClient().findByID(MainController.obraSeleccionada);
 
-        comentarioInfo.setText("El manga se ha añadido a Leídos");
+        if(!obra.getCapitulosTotales().equals("En publicacion")){
+            obus.setCapitulosLeidos(Integer.parseInt(obra.getCapitulosTotales()));
+            obus.setEstado(Status.LEIDO.toString());
+            new ObraUsuarioClient().updateStatus(obus);
+            comentarioInfo.setText("El manga se ha añadido a Leídos");
+        }else{
+            comentarioInfo.setText("El manga está aún en publicación");
+        }
 
+        comprobarObra();
+
+    }
+
+    private void addObra (ObraUsuario obus) throws ExcepcionHTTP {
+        ObraUsuario obraUsuario = new ObraUsuarioClient().addObra(obus);
+        anyadirEnCurso(obus);
     }
 
     @FXML
     private void anyadirEnCurso(ObraUsuario obus) throws ExcepcionHTTP {
-        ObraUsuario obraUsuario = new ObraUsuarioClient().addObra(obus);
-        System.out.println(obraUsuario);
+        obus.setEstado(Status.LEYENDO.toString());
+        new ObraUsuarioClient().updateStatus(obus);
 
         comentarioInfo.setText("El manga se ha añadido a En Curso");
+        comprobarObra();
 
     }
 
     @FXML
-    private void anyadirPendiente(){
-
-        //Aqui se realizaria la consulta que añade el manga a pendiente
+    private void anyadirPendiente(ObraUsuario obus) throws ExcepcionHTTP {
+        obus.setEstado(Status.PENDIENTE.toString());
+        new ObraUsuarioClient().updateStatus(obus);
 
         comentarioInfo.setText("El manga se ha añadido a Pendiente");
+        comprobarObra();
 
     }
 
     @FXML
-    private void eliminarLista(){
+    private void eliminarLista(ObraUsuario obus) throws ExcepcionHTTP {
 
-        //Aqui se realizaria la consulta que elimina el manga de la lista del usuario
-
+        new ObraUsuarioClient().deleteObra(obus.getUsuario(), obus.getObra());
         comentarioInfo.setText("El manga se ha eliminado de su lista");
+        comprobarObra();
 
     }
 
@@ -79,20 +98,44 @@ public class InfoController implements Initializable {
     }
 
     @FXML
-    private void sumarCapitulo(){
+    private void sumarCapitulo(ObraUsuario obus) throws ExcepcionHTTP {
 
         //Aqui se realizaria la consulta que suma un capitulo a los capitulos leidos
 
-        numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) + 1));
+        Obra obra = new ObraClient().findByID(MainController.obraSeleccionada);
+
+        if(!obra.getCapitulosTotales().equals("En publicacion")){
+            if(Integer.parseInt(obra.getCapitulosTotales()) > obus.getCapitulosLeidos()){
+                new ObraUsuarioClient().sumChap(obus);
+                numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) + 1));
+            }
+        }else{
+            new ObraUsuarioClient().sumChap(obus);
+            numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) + 1));
+        }
+
+        if(obus.getEstado().equals(Status.PENDIENTE) && obus.getCapitulosLeidos() == 0){
+            anyadirEnCurso(obus);
+        }else{
+            comprobarObra();
+        }
+
+
 
     }
 
+
+
     @FXML
-    private void restarCapitulo(){
+    private void restarCapitulo(ObraUsuario obus) throws ExcepcionHTTP {
 
         //Aqui se realizaria la consulta que resta un capitulo a los capitulos leidos
+        if(obus.getCapitulosLeidos() > 0){
+            new ObraUsuarioClient().resChap(obus);
+            numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) - 1));
+        }
 
-        numCapitulosLeidos.setText(String.valueOf(Integer.parseInt(numCapitulosLeidos.getText()) - 1));
+
 
     }
 

@@ -62,4 +62,49 @@ public class ObraUsuarioClient {
             throw new ExcepcionHTTP("Error");
         }
     }
+    public ObraUsuario updateStatus (ObraUsuario obus) throws ExcepcionHTTP{
+        Response response = webTarget.path("/update")
+                .request(MediaType.APPLICATION_JSON_PATCH_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(Entity.entity(obus, MediaType.APPLICATION_JSON));
+
+        if (response.getStatus() == 200) {
+            return response.readEntity(ObraUsuario.class);
+        } else{
+            throw new ExcepcionHTTP("Error");
+        }
+    }
+    public ObraUsuario sumChap (ObraUsuario obus) throws ExcepcionHTTP{
+        Response response = webTarget.path("/sum")
+                .request(MediaType.APPLICATION_JSON_PATCH_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(Entity.entity(obus, MediaType.APPLICATION_JSON));
+
+        if (response.getStatus() == 200) {
+            return response.readEntity(ObraUsuario.class);
+        } else{
+            throw new ExcepcionHTTP("Error");
+        }
+    }
+    public ObraUsuario resChap (ObraUsuario obus) throws ExcepcionHTTP{
+        Response response = webTarget.path("/res")
+                .request(MediaType.APPLICATION_JSON_PATCH_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(Entity.entity(obus, MediaType.APPLICATION_JSON));
+
+        if (response.getStatus() == 200) {
+            return response.readEntity(ObraUsuario.class);
+        } else{
+            throw new ExcepcionHTTP("Error");
+        }
+    }
+    public void deleteObra (String email, String obra) throws ExcepcionHTTP{
+        Response response = webTarget.path("/" + email + "/" + obra)
+                .request()
+                .delete();
+
+        if (response.getStatus() != 200) {
+            throw new ExcepcionHTTP("Error al eleminar");
+        }
+    }
 }
