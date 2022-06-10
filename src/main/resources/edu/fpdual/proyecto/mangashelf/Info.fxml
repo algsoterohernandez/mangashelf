@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.InfoController">
+   <children>
+      <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#volverIndice" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" onMouseClicked="#volverIndice" text="MANGASHELF" textFill="WHITE">
+               <font>
+                  <Font name="Goudy Stout" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </Pane>
+      <Separator layoutY="32.0" prefHeight="2.0" prefWidth="600.0" />
+      <Separator layoutY="36.0" prefHeight="3.0" prefWidth="600.0" />
+      <Pane layoutY="37.0" prefHeight="374.0" prefWidth="600.0">
+         <children>
+            <Pane fx:id="portadaPane" layoutX="17.0" layoutY="12.0" prefHeight="355.0" prefWidth="194.0" style="-fx-background-color: black;">
+               <children>
+                  <ImageView fx:id="portadaManga" fitHeight="285.0" fitWidth="223.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@static.img/portadas/AssassinationClassroom.png" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="contadorPane" layoutX="9.0" layoutY="301.0" prefHeight="46.0" prefWidth="176.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView accessibleRole="INCREMENT_BUTTON" fitHeight="39.0" fitWidth="39.0" layoutX="131.0" layoutY="4.0" onMouseClicked="#sumarCapitulo" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@static.img/iconos/mas.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView accessibleRole="DECREMENT_BUTTON" fitHeight="39.0" fitWidth="39.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#restarCapitulo" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@static.img/iconos/menos.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label fx:id="numCapitulosLeidos" accessibleRole="TEXT_FIELD" alignment="CENTER" layoutX="56.0" layoutY="8.0" prefHeight="31.0" prefWidth="64.0" text="0">
+                           <font>
+                              <Font name="Eras Demi ITC" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="infoPane" layoutX="224.0" layoutY="12.0" prefHeight="186.0" prefWidth="359.0" style="-fx-background-color: BLACK;">
+               <children>
+                  <Pane layoutX="7.0" layoutY="7.0" prefHeight="172.0" prefWidth="345.0" style="-fx-background-color: #FFCC80;">
+                     <children>
+                        <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="15.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@static.img/iconos/titulo.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@static.img/iconos/genero.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="11.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@static.img/iconos/autorIcono.png" />
+                           </image>
+                        </ImageView>
+                     </children></Pane>
+                  <Label layoutX="70.0" layoutY="11.0" text="Título:">
+                     <font>
+                        <Font name="Eras Medium ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tituloManga" accessibleRole="TEXT_FIELD" layoutX="69.0" layoutY="34.0" prefHeight="18.0" prefWidth="176.0" text="tituloManga">
+                     <font>
+                        <Font name="Eras Demi ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="67.0" text="Autor:">
+                     <font>
+                        <Font name="Eras Medium ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="autorManga" accessibleRole="TEXT_FIELD" layoutX="69.0" layoutY="90.0" prefHeight="18.0" prefWidth="176.0" text="autorManga">
+                     <font>
+                        <Font name="Eras Demi ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="123.0" text="Género:">
+                     <font>
+                        <Font name="Eras Medium ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="generoManga" accessibleRole="TEXT_FIELD" layoutX="69.0" layoutY="146.0" prefHeight="18.0" prefWidth="129.0" text="generoManga">
+                     <font>
+                        <Font name="Eras Demi ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="249.0" layoutY="123.0" text="Capítulos:">
+                     <font>
+                        <Font name="Eras Medium ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="capitulosManga" accessibleRole="TEXT_FIELD" layoutX="250.0" layoutY="146.0" prefHeight="18.0" prefWidth="99.0" text="capitulos">
+                     <font>
+                        <Font name="Eras Demi ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="205.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@static.img/iconos/colecciones.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="243.0" layoutY="11.0" prefHeight="22.0" prefWidth="106.0" text="Publicación:">
+                     <font>
+                        <Font name="Eras Medium ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="243.0" layoutY="68.0" prefHeight="22.0" prefWidth="106.0" text="Finalización:">
+                     <font>
+                        <Font name="Eras Medium ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="anyoPublicacion" accessibleRole="TEXT_FIELD" layoutX="246.0" layoutY="34.0" prefHeight="18.0" prefWidth="106.0" text="anyoPublic">
+                     <font>
+                        <Font name="Eras Demi ITC" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="anyoFinalizacion" accessibleRole="TEXT_FIELD" layoutX="246.0" layoutY="89.0" prefHeight="18.0" prefWidth="106.0" text="anyoFin">
+                     <font>
+                        <Font name="Eras Demi ITC" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="anyadirListaPane" layoutX="226.0" layoutY="212.0" prefHeight="114.0" prefWidth="359.0" style="-fx-background-color: black;">
+               <children>
+                  <Pane layoutX="7.0" layoutY="6.0" prefHeight="102.0" prefWidth="345.0" style="-fx-background-color: #B2EBF2;">
+                     <children>
+                        <Label layoutX="63.0" layoutY="3.0" text="Añadir a la siguiente lista:">
+                           <font>
+                              <Font name="Eras Demi ITC" size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane accessibleRole="BUTTON" layoutX="134.0" layoutY="23.0" prefHeight="74.0" prefWidth="91.0">
+                           <children>
+                              <Label layoutX="15.0" layoutY="53.0" text="En curso">
+                                 <font>
+                                    <Font name="Eras Medium ITC" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </Label>
+                              <ImageView fx:id="enCursoBoton" fitHeight="46.0" fitWidth="49.0" layoutX="23.0" layoutY="6.0" onMouseClicked="#anyadirEnCurso" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@static.img/iconos/leyendo.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor></Pane>
+                        <Pane accessibleRole="BUTTON" layoutX="8.0" layoutY="25.0" prefHeight="74.0" prefWidth="91.0">
+                           <children>
+                              <ImageView fx:id="pendientesBoton" fitHeight="46.0" fitWidth="46.0" layoutX="22.0" layoutY="5.0" onMouseClicked="#anyadirPendiente" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@static.img/iconos/amor.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <Label layoutX="6.0" layoutY="51.0" text="Pendientes">
+                                 <font>
+                                    <Font name="Eras Medium ITC" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Pane>
+                        <Pane accessibleRole="BUTTON" layoutX="246.0" layoutY="23.0" prefHeight="74.0" prefWidth="91.0">
+                           <children>
+                              <Label layoutX="7.0" layoutY="53.0" text="Finalizados">
+                                 <font>
+                                    <Font name="Eras Medium ITC" size="16.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </Label>
+                              <ImageView fx:id="finalizadosBoton" fitHeight="46.0" fitWidth="46.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#anyadirLeido" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@static.img/iconos/libros.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor></Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="finalizarEliminarPane" layoutX="226.0" layoutY="329.0" prefHeight="39.0" prefWidth="359.0">
+               <children>
+                  <Pane layoutX="109.0" layoutY="4.0" prefHeight="31.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fx:id="eliminarImg" accessibleRole="BUTTON" fitHeight="32.0" fitWidth="39.0" layoutX="108.0" layoutY="-7.0" nodeOrientation="INHERIT" onMouseClicked="#eliminarLista" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@static.img/iconos/papelera.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Label fx:id="eliminarTexto" accessibleRole="BUTTON" layoutY="-8.0" onMouseClicked="#eliminarLista" prefHeight="39.0" prefWidth="106.0" text="Eliminar">
+                           <font>
+                              <Font name="Eras Demi ITC" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children></Pane>
+            <Label fx:id="comentarioInfo" alignment="CENTER" layoutX="225.0" layoutY="355.0" prefHeight="20.0" prefWidth="359.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

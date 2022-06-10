@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.CambioContrasenyaController">
+   <children>
+      <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#volverIndiceCambio" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" onMouseClicked="#volverIndiceCambio" text="MANGASHELF" textFill="WHITE">
+               <font>
+                  <Font name="Goudy Stout" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Button layoutX="485.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesion">
+               <font>
+                  <Font name="Eras Medium ITC" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Separator layoutY="32.0" prefHeight="2.0" prefWidth="600.0" />
+      <Separator layoutY="36.0" prefHeight="3.0" prefWidth="600.0" />
+      <Pane fx:id="cambioContrasenyaPane" layoutX="-2.0" layoutY="38.0" prefHeight="374.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" layoutX="188.0" layoutY="125.0" prefHeight="19.0" prefWidth="222.0" text="Nueva contraseña">
+               <font>
+                  <Font name="Eras Medium ITC" size="16.0" />
+               </font></Label>
+            <PasswordField fx:id="nuevaContrasenya" layoutX="188.0" layoutY="150.0" prefHeight="25.0" prefWidth="222.0" />
+            <PasswordField fx:id="confirmacionContrasenya" layoutX="188.0" layoutY="207.0" prefHeight="25.0" prefWidth="222.0" />
+            <Label alignment="CENTER" layoutX="188.0" layoutY="182.0" prefHeight="19.0" prefWidth="222.0" text="Confirmar nueva contraseña">
+               <font>
+                  <Font name="Eras Medium ITC" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="137.0" layoutY="12.0" text="¿Necesitas cambiar tu contraseña?">
+               <font>
+                  <Font name="Eras Demi ITC" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="208.0" layoutY="250.0" mnemonicParsing="false" onAction="#enviarCambioContrasenya" text="Enviar">
+               <font>
+                  <Font name="Eras Medium ITC" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="324.0" layoutY="250.0" mnemonicParsing="false" onAction="#borrarCambioContrasenya" text="Borrar">
+               <font>
+                  <Font name="Eras Medium ITC" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="65.0" fitWidth="73.0" layoutX="267.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/iconos/candado.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="mensajeCambio" alignment="CENTER" layoutX="123.0" layoutY="343.0" prefHeight="17.0" prefWidth="356.0" />
+            <Button layoutX="209.0" layoutY="296.0" mnemonicParsing="false" onAction="#eliminarCuenta" prefHeight="25.0" prefWidth="183.0" text="Eliminar Cuenta">
+               <font>
+                  <Font name="Eras Medium ITC" size="16.0" />
+               </font>
+            </Button>
+         </children></Pane>
+   </children>
+</AnchorPane>

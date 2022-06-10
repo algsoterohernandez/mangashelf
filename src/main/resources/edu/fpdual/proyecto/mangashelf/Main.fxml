@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fpdual.proyecto.mangashelf.controller.MainController">
+   <children>
+      <Pane prefHeight="32.0" prefWidth="600.0" style="-fx-background-color: #777777;">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="3.0" layoutY="2.0" onMouseClicked="#volverIndice" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/logos/logo_mangashelf_transparente.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label accessibleRole="BUTTON" layoutX="41.0" layoutY="7.0" onMouseClicked="#volverIndice" text="MANGASHELF" textFill="WHITE">
+               <font>
+                  <Font name="Goudy Stout" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <TextField fx:id="buscador" layoutX="260.0" layoutY="4.0" onKeyPressed="#buscar" prefHeight="25.0" prefWidth="125.0" promptText="Buscar..." />
+            <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="225.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/iconos/lupa.png" />
+               </image>
+            </ImageView>
+            <ImageView accessibleRole="TEXT" fitHeight="28.0" fitWidth="25.0" layoutX="431.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/iconos/filtro.png" />
+               </image>
+            </ImageView>
+            <MenuButton fx:id="filtroMenu" layoutX="472.0" layoutY="5.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="73.0" text="Filtro">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#seleccionarTitulo" text="Título" />
+                <MenuItem mnemonicParsing="false" onAction="#seleccionarAutor" text="Autor" />
+                  <MenuItem mnemonicParsing="false" onAction="#seleccionarGenero" text="Género" />
+              </items>
+               <font>
+                  <Font name="Eras Demi ITC" size="11.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </Pane>
+      <Separator layoutY="32.0" prefHeight="2.0" prefWidth="600.0" />
+      <Separator layoutY="36.0" prefHeight="3.0" prefWidth="600.0" />
+      <AnchorPane layoutY="38.0" prefHeight="374.0" prefWidth="183.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView accessibleRole="BUTTON" fitHeight="68.0" fitWidth="65.0" layoutX="62.0" layoutY="25.0" onMouseClicked="#seleccionarCambiarContrasenya" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@static.img/iconos/user.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label fx:id="nombreUsuario" alignment="CENTER" layoutX="11.0" layoutY="105.0" prefHeight="12.0" prefWidth="166.0" text="NOMBRE">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </Label>
+            <Pane fx:id="leidosBoton" accessibleRole="BUTTON" layoutY="135.0" onMouseClicked="#seleccionarLeidos" prefHeight="65.0" prefWidth="183.0">
+               <children>
+                  <Label accessibleRole="BUTTON" layoutX="80.0" layoutY="17.0" text="Leídos">
+                     <font>
+                        <Font name="Century Gothic" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="21.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@static.img/iconos/libros.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane fx:id="enCursoBoton" accessibleRole="BUTTON" layoutY="209.0" onMouseClicked="#seleccionarEnCurso" prefHeight="65.0" prefWidth="183.0">
+               <children>
+                  <Label accessibleRole="BUTTON" layoutX="62.0" layoutY="16.0" text="En Curso">
+                     <font>
+                        <Font name="Century Gothic" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@static.img/iconos/leyendo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane fx:id="pendienteBoton" accessibleRole="BUTTON" layoutY="284.0" onMouseClicked="#seleccionarPendiente" prefHeight="65.0" prefWidth="185.0">
+               <children>
+                  <Label accessibleRole="BUTTON" layoutX="60.0" layoutY="17.0" prefHeight="31.0" prefWidth="114.0" text="Pendiente">
+                     <font>
+                        <Font name="Century Gothic" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@static.img/iconos/amor.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <ScrollPane hbarPolicy="NEVER" layoutX="183.0" layoutY="38.0" prefHeight="374.0" prefWidth="417.0">
+         <content>
+            <TilePane fx:id="portadasMangas" hgap="5.0" prefHeight="376.0" prefWidth="403.0">
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+               </padding>
+            </TilePane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
